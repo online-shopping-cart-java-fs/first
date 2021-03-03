@@ -36,7 +36,10 @@ public class CustomerController {
 	}
 	
 	
-
+	@GetMapping(value = "getCustomerData/{custid}")
+	public List<Customer> getCustomerSpringData(@PathVariable("custid") int custid) {
+			return cs.getCustomerSpringData(custid);
+	}
 	
 	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeCustomerSpringData(@RequestBody Customer cc) {

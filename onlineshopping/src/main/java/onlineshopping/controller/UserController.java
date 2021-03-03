@@ -10,13 +10,19 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import onlineshopping.bean.Address;
 import onlineshopping.bean.Cart;
+import onlineshopping.bean.Customer;
 import onlineshopping.bean.Item;
 import onlineshopping.bean.Product;
+import onlineshopping.service.AddressService;
 import onlineshopping.service.CartService;
+import onlineshopping.service.CustomerService;
 import onlineshopping.service.ItemService;
 import onlineshopping.service.ProductItemService;
 import onlineshopping.service.ProductService;
@@ -36,6 +42,14 @@ public class UserController {
 	
 	@Autowired
 	ProductItemService productItemService;
+	
+	@Autowired
+	AddressService addressService;
+	
+	@Autowired
+	CustomerService cs;
+	
+	
 	
 	// dashboard related operations
 	
@@ -99,4 +113,33 @@ public class UserController {
 	public List<Product> getAllProductsByIdDescOrder() {
 		return productService.getAllProductsSortByIdDescOrder();
 	} 
+	
+
+		@PostMapping(value = "storeAddressData",consumes = MediaType.APPLICATION_JSON_VALUE)
+		public String storeAddressSpringData(@RequestBody Address aa) {
+			return addressService.storeCreditCardSpringData(aa);
+				}
+		
+		
+		@PutMapping(value = "updateAddressData",consumes = MediaType.APPLICATION_JSON_VALUE)
+		public String updateAddressSpringData(@RequestBody Address aa) {
+			return addressService.updateAddressSpringData(aa);
+				}
+		
+		
+		@DeleteMapping(value = "deleteAddressData/{addId}")
+		public String deleteProductSpringData(@PathVariable("addId") int aid) {
+				return addressService.deleteAddressSpringData(aid);
+		}
+		
+		@PutMapping(value = "updateCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
+		public String updateCustomerSpringData(@RequestBody Customer cc) {
+				return cs.updateCustomerSpringData(cc);
+		}
+		
+		@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
+		public String storeCustomerSpringData(@RequestBody Customer cc) {
+			return cs.storeCustomerSpringData(cc);
+		}
+		
 }

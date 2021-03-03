@@ -42,9 +42,9 @@ public class AddressService {
 		{
 			Address c	 = obj.get();
 			c.setStreetName(aa.getStreetName());
-			//c.setCity(aa.getCity());
-			//c.setState(aa.getState());
-			//c.setPin(aa.getPin());
+			c.setCity(aa.getCity());
+			c.setState(aa.getState());
+			c.setPin(aa.getPin());
 			
 		addressRepository.saveAndFlush(aa);
 		return "Record updated successfully";

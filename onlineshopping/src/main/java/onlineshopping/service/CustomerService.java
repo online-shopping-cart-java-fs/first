@@ -1,5 +1,7 @@
 package onlineshopping.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -19,6 +21,19 @@ public class CustomerService {
 	public List<Customer>getAllCustomerFormSpringData(){
 		return cr.findAll();
 	   }
+	
+	public Optional<Customer> getCustomerSpringData(int custid) {
+		
+		Optional<Customer>op=cr.findById(custid);
+
+		if(op.isPresent()) {
+			return op;
+		}
+		return null;
+			   
+		
+		}
+
 	
 	
 	
