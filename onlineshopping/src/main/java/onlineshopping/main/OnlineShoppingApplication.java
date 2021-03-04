@@ -12,7 +12,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EntityScan(basePackages= "onlineshopping.bean")
 @EnableJpaRepositories(basePackages="onlineshopping")
 @EnableSwagger2
-@CrossOrigin
 public class OnlineShoppingApplication {
 
 	public static void main(String[] args) {
