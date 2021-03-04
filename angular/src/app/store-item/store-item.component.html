@@ -1,0 +1,12 @@
+<div>
+    <h4>storing item details</h4>
+    <form [formGroup]="itemInfo" (ngSubmit)="storeItem()">
+        <label>ItemId</label>
+        <input type="number" formControlName="itemid"/><br/>
+        <label>ItemName</label>
+        <input type="text" formControlName="itemname"/><br/>
+        <input type="submit" value="store product info"/>
+        <input type="reset" value="reset"/>
+    </form>
+    {{msg}}
+</div>

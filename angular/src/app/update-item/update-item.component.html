@@ -1,0 +1,12 @@
+<div>
+    <h4>updating item</h4>
+    <form #itemRef="ngForm" (ngSubmit)="updateItem(itemRef.value)">
+        <label>ItemId</label>
+        <input type="number" name="itemid" ngModel/><br/>
+        <label>ItemName</label>
+        <input type="text" name="itemname" ngModel/><br/>
+        <input type="submit" value="Update"/>
+        <input type="reset" value="reset"/>
+    </form>
+    {{msg}}
+</div>
