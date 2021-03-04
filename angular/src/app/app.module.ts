@@ -14,6 +14,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { MyGaurds } from './app.guards';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MyGaurds],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
