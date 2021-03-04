@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
         this.msg = "UserName or password is wrong";
       }
     }else{
+      
     }
   }
 
