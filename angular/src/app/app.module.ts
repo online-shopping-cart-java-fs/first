@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RetrieveItemComponent } from './retrieve-item/retrieve-item.component';
@@ -15,6 +14,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
+import { HeaderHomeComponent } from './header-home/header-home.component';
+import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
+import { StoreProductComponent } from './store-product/store-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { RetriveAddressComponent } from './retrive-address/retrive-address.component';
 import { StoreAddressComponent } from './store-address/store-address.component';
 import { UpdateAddressComponent } from './update-address/update-address.component';
@@ -30,6 +34,7 @@ import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orde
 import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
 import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-data.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +47,11 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    HeaderHomeComponent,
+    RetrieveProductComponent,
+    StoreProductComponent,
+    UpdateProductComponent,
+    DeleteProductComponent
     RetriveAddressComponent,
     StoreAddressComponent,
     UpdateAddressComponent,
@@ -58,6 +68,7 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     StorecustomerDataComponent
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -67,6 +78,6 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     ReactiveFormsModule,
   ],
   providers: [MyGaurds],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,LoginComponent]
 })
 export class AppModule { }

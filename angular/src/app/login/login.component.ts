@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(userRef:any) {
+    
     let user = userRef.user;
     let pass  = userRef.pass;
     let cat = userRef.cat;

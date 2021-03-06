@@ -1,0 +1,7 @@
+<div>
+    <h4>delete Product</h4>
+    <input type="number" #productIdRef/>
+    <input type="button" value="Delete Product" (click)="deleteProduct(productIdRef.value)"/>
+    <br/>
+    {{msg}}
+</div>

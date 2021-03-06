@@ -1,16 +1,26 @@
-<div>
-    <h2>Login page</h2>
+<h2 align="center" class="display-4 mb-5">Sign In</h2>
+    <div style="width:40%; margin: 25px auto" >
     <form #userRef="ngForm" (ngSubmit)="checkUser(userRef.value)">
-        <label>UserName</label>
-        <input type="text" name="user" ngModel/><br/>
+        <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="user" class="form-control form-control-lg"  placeholder="Enter Username" ngModel/>
+        </div>
+        <div class="form-group">
         <label>Password</label>
-        <input type="password" name="pass" ngModel/><br/>
-        <label>Admin</label>
-        <input type="radio" name="cat" value="admin" ngModel/>
-        <label>Customer</label>
-        <input type="radio" name="cat" value="customer" ngModel/><br/>
-        <input type="submit" value="submit"/>
-        <input type="reset" value="reset"/>
+        <input type="password" name="pass" class="form-control form-control-lg" placeholder="Enter Password" ngModel/><br/>
+        </div>
+        <div class="form-group">
+        <input type="radio" name="cat" value="admin" ngModel/>&nbsp;
+        <label class="inline">Admin</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="cat" value="customer" ngModel/>&nbsp;
+        <label class="inline">Customer</label>
+        </div>
+        <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-lg btn-primary btn-block"/>
+        </div>
+        <div class="form-group">
+        <input type="reset" value="reset" class="btn btn-lg btn-dark btn-block"/>
+        </div>
     </form>
     {{msg}}
 </div>

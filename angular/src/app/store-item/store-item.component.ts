@@ -10,6 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class StoreItemComponent implements OnInit {
 
   msg:string="";
+  
   itemInfo = new FormGroup({
     itemid:new FormControl(),
     itemname:new FormControl()

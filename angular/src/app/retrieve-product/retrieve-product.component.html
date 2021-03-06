@@ -1,0 +1,20 @@
+<div>
+    <input type="button" value="See All Products" (click)="getAllProducts()"/>
+    <div *ngIf="flag">
+        <table border="1">
+        <tr>
+            <th>ProductId</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Category</th>
+        </tr>
+        <tr *ngFor="let product of productInfo">
+                <td>{{product.pid}}</td>
+                <td>{{product.pname}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.piid}}</td>
+        </tr>
+        </table>
+    </div>
+</div>
+
