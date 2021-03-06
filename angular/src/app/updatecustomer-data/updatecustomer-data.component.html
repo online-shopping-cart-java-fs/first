@@ -1,0 +1,29 @@
+<div>
+    <h3 align="center">Update Customer Details</h3>
+    <form #customerRef="ngForm" (ngSubmit)="updateCustomerInfo(customerRef.value)">
+      
+      <table align="center" height="300px" width="50%" >
+          <tr bgcolor="black">
+              <th><font color="yellow" size="4">Customer Id</font></th>
+              <th><input type="text" name="custid" ngModel/></th>
+          </tr>
+          <tr bgcolor="black">
+              <th><font color="yellow" size="4">Customer Name</font></th>
+              <th><input type="text" name="custname" ngModel/></th>
+          </tr>
+        <tr bgcolor="black">
+            <th><font color="yellow" size="4">Password</font></th>
+            <th><input type="password" name="password" ngModel/></th>
+        </tr>
+        
+
+    <tr bgcolor="yellow">      
+        <th colspan="2"><font size="4"> 
+        <input type="submit" value="Update"/>&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="reset"/></font>
+    </th>
+    </tr> 
+    </table>
+    </form>
+    <h3 align="center"><font color="red">{{msg}}</font></h3>
+</div>
