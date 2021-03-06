@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RetrieveItemComponent } from './retrieve-item/retrieve-item.component';
@@ -15,6 +14,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
+import { HeaderHomeComponent } from './header-home/header-home.component';
+import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
+import { StoreProductComponent } from './store-product/store-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,12 @@ import { MyGaurds } from './app.guards';
     AdminDashboardComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderHomeComponent,
+    RetrieveProductComponent,
+    StoreProductComponent,
+    UpdateProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +46,6 @@ import { MyGaurds } from './app.guards';
     ReactiveFormsModule
   ],
   providers: [MyGaurds],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,LoginComponent]
 })
 export class AppModule { }

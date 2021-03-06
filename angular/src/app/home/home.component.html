@@ -1,9 +1,15 @@
+<h2 align="center" class="display-4 mb-5">See, Buy and Get</h2>
 <div>
-    <div>
-    <h2>Welcome to Online shopping</h2>
-    <a routerLink="login">Login</a>
-    </div>
-    <div>
-    <router-outlet></router-outlet>
-    </div>
+    <table border="1">
+        <tr *ngFor="let product of productInfo">
+            <td>{{product.pid}}</td>
+            <td>{{product.pname}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.piid}}</td>
+        </tr>
+    </table>
 </div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
