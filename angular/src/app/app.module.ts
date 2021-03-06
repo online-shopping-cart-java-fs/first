@@ -15,6 +15,10 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
+import { RetriveAddressComponent } from './retrive-address/retrive-address.component';
+import { StoreAddressComponent } from './store-address/store-address.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
+import { DeleteAddressComponent } from './delete-address/delete-address.component';
 import { StoreCreditcardComponent } from './store-creditcard/store-creditcard.component';
 import { UpdateCreditcardComponent } from './update-creditcard/update-creditcard.component';
 import { DeleteCreditcardComponent } from './delete-creditcard/delete-creditcard.component';
@@ -38,6 +42,10 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    RetriveAddressComponent,
+    StoreAddressComponent,
+    UpdateAddressComponent,
+    DeleteAddressComponent,
     StoreCreditcardComponent,
     UpdateCreditcardComponent,
     DeleteCreditcardComponent,
@@ -49,13 +57,14 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     UpdatecustomerDataComponent,
     StorecustomerDataComponent
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [MyGaurds],
   bootstrap: [AppComponent]
