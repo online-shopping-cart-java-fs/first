@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
+import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
+import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-data.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { MyGaurds } from './app.guards';
     AdminDashboardComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    UpdatecustomerDataComponent,
+    StorecustomerDataComponent
   ],
   imports: [
     BrowserModule,
