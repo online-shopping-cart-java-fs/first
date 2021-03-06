@@ -19,6 +19,16 @@ import { RetriveAddressComponent } from './retrive-address/retrive-address.compo
 import { StoreAddressComponent } from './store-address/store-address.component';
 import { UpdateAddressComponent } from './update-address/update-address.component';
 import { DeleteAddressComponent } from './delete-address/delete-address.component';
+import { StoreCreditcardComponent } from './store-creditcard/store-creditcard.component';
+import { UpdateCreditcardComponent } from './update-creditcard/update-creditcard.component';
+import { DeleteCreditcardComponent } from './delete-creditcard/delete-creditcard.component';
+import { GetCreditcardByidComponent } from './get-creditcard-byid/get-creditcard-byid.component';
+import { RetriveOrdersByidComponent } from './retrive-orders-byid/retrive-orders-byid.component';
+import { StoreOrdersComponent } from './store-orders/store-orders.component';
+import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
+import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orders.component';
+import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
+import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-data.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +45,19 @@ import { DeleteAddressComponent } from './delete-address/delete-address.componen
     RetriveAddressComponent,
     StoreAddressComponent,
     UpdateAddressComponent,
-    DeleteAddressComponent
+    DeleteAddressComponent,
+    StoreCreditcardComponent,
+    UpdateCreditcardComponent,
+    DeleteCreditcardComponent,
+    GetCreditcardByidComponent,
+    RetriveOrdersByidComponent,
+    StoreOrdersComponent,
+    DeleteOrdersComponent,
+    RetriveAllOrdersComponent
+    UpdatecustomerDataComponent,
+    StorecustomerDataComponent
+
+
   ],
   imports: [
     BrowserModule,

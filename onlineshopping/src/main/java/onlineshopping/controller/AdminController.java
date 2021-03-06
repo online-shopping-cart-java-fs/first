@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,16 +19,19 @@ import org.springframework.web.bind.annotation.RestController;
 import onlineshopping.bean.Address;
 import onlineshopping.bean.Customer;
 import onlineshopping.bean.Item;
+import onlineshopping.bean.Orders;
 import onlineshopping.bean.Product;
 import onlineshopping.service.AddressService;
 import onlineshopping.service.CustomerService;
 import onlineshopping.service.ItemService;
 import onlineshopping.service.JoinService;
+import onlineshopping.service.OrderService;
 import onlineshopping.service.ProductItemService;
 import onlineshopping.service.ProductService;
 
 @RestController
 @RequestMapping(value="admin")
+@CrossOrigin
 public class AdminController {
 
 	@Autowired
@@ -47,6 +51,9 @@ public class AdminController {
 	
 	@Autowired
 	CustomerService cs;
+	
+	@Autowired
+	OrderService orderService;
 	
 	
 	
@@ -133,7 +140,18 @@ public class AdminController {
 					return ResponseEntity.status(200).body(details);
 					
 	}
-
+	
+	@GetMapping(value = "getorderinfo/{custid}")
+	public ResponseEntity<List<Object[]>> getCustomerOrderInfo(@PathVariable("custid") int custid){
+		List<Object[]> details = ccs.getOrdersDetails(custid);
+			return ResponseEntity.status(200).body(details);				
+		}
+	
+	@GetMapping(value = "getOrderInfo",produces = MediaType.APPLICATION_JSON_VALUE)
+		public List<Orders> getOrderDetailsFromSpringData(){
+	
+		return orderService.getOrderDetailsFromSpringData();
+				}
 	
 
 	

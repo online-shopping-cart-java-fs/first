@@ -1,0 +1,25 @@
+<div>
+    <h4>item details</h4>
+    
+    <input type="button" value="See Your Order" (click)="getOrder()"/>
+    <div *ngIf="flag">
+        <table border="1">
+        <tr>
+            <th>CustId</th>
+            <th>OrderId</th>
+            <th>OrderDate</th>
+            <th>pid</th>
+            <th>pname</th>
+            <th>price</th>
+        </tr>
+        <tr *ngFor="let item of itemInfo">
+            <td>{{order.custid}}</td>
+            <td>{{order.orderid}}</td>
+            <td>{{order.orderdate}}</td>
+            <td>{{order.pid}}</td>
+            <td>{{order.pname}}</td>
+            <td>{{order.price}}</td>
+        </tr>
+        </table>
+    </div>
+</div>
