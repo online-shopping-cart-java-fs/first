@@ -23,6 +23,8 @@ import { RetriveOrdersByidComponent } from './retrive-orders-byid/retrive-orders
 import { StoreOrdersComponent } from './store-orders/store-orders.component';
 import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
 import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orders.component';
+import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
+import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-data.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,9 @@ import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orde
     StoreOrdersComponent,
     DeleteOrdersComponent,
     RetriveAllOrdersComponent
+    UpdatecustomerDataComponent,
+    StorecustomerDataComponent
+
   ],
   imports: [
     BrowserModule,
