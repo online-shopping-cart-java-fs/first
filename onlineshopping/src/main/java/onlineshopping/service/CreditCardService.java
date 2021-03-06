@@ -43,7 +43,7 @@ public class CreditCardService {
 			CreditCard c	 = obj.get();
 			c.setDebitCardNum(cc.getDebitCardNum());
 			c.setPassword(cc.getPassword());
-		creditCardRepository.saveAndFlush(cc);
+		creditCardRepository.saveAndFlush(c);
 		return "Record updated successfully";
 		}
 		else 
@@ -62,6 +62,8 @@ public class CreditCardService {
 			return "Record not present";
 		}
 	}
+
+	
 
 
 }

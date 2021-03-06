@@ -33,4 +33,14 @@ manager.createNativeQuery("select c.custid,c.custname,ad.addid,ad.streetname,ad.
 		List<Object[]> list = qry.getResultList();
 		return list;
 }
+
+	
+
+	public List<Object[]> getCustomerOrderDetails(int custid) {
+		EntityManager manager  = emf.createEntityManager();
+		Query qry=manager.createNativeQuery("select  c.custid,c.custname,o.orderid,o.orderdate from customer c,orders o where c.custid=o.custid and c.custid = :custId");
+		qry.setParameter("custId", custid);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
 }

@@ -20,6 +20,11 @@ public class JoinService {
 	public List<Object[]> getCustomerAddressDetails(int custid) {
 		return jd.getCustomerAddressInfo(custid);
 	}
+
+	public List<Object[]> getOrdersDetails(int custid) {
+		
+		return jd.getCustomerOrderDetails(custid);
+	}
 	
 	
 }
