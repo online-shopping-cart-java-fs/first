@@ -1,0 +1,22 @@
+<div>
+    <h4>storing Order details</h4>
+    <form [formGroup]="orderInfo" (ngSubmit)="storeOrderDetails()">
+        <label>Customer id</label>
+        <input type="number" formControlName="custid"/><br/>
+        <label>Order Id</label>
+        <input type="number" formControlName="orderid"/><br/>
+        <label>Order Date</label>
+        <input type="date" formControlName="orderdate"/><br/>
+        <label>Product Id</label>
+        <input type="number" formControlName="pid"/><br/>
+        <label>Product Name</label>
+        <input type="text" formControlName="pname"/><br/>
+        <label>Product Price</label>
+        <input type="number" formControlName="price"/><br/>
+
+        <input type="submit" value="store product info"/>
+        <input type="reset" value="reset"/>
+    </form>
+    {{msg}}
+</div>
+

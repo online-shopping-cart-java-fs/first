@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { MyGaurds } from './app.guards';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
