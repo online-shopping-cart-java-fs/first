@@ -15,6 +15,10 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
+import { RetriveAddressComponent } from './retrive-address/retrive-address.component';
+import { StoreAddressComponent } from './store-address/store-address.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
+import { DeleteAddressComponent } from './delete-address/delete-address.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +31,18 @@ import { MyGaurds } from './app.guards';
     AdminDashboardComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    RetriveAddressComponent,
+    StoreAddressComponent,
+    UpdateAddressComponent,
+    DeleteAddressComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [MyGaurds],
   bootstrap: [AppComponent]

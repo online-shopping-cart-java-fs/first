@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
- angular_project_changes
 
 
- main
+
+
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { MyGaurds } from './app.guards';
 import { HomeComponent } from './home/home.component';
