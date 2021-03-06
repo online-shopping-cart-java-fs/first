@@ -1,0 +1,15 @@
+<div>
+    <h4>updating CreditCard info</h4>
+    <form #ccRef="ngForm" (ngSubmit)="updateCreditcard(ccRef.value)">
+        <label>CreditCard number</label>
+        <input type="number" name="creditCardNum" ngModel/><br/>
+        <label>DebitCard number</label>
+        <input type="number" name="debitCardNum" ngModel/><br/>
+        <label>Password</label>
+        <input type="text" name="password" ngModel/><br/>
+        <input type="submit" value="Update"/>
+        <input type="reset" value="reset"/>
+    </form>
+    {{msg}}
+</div>
+

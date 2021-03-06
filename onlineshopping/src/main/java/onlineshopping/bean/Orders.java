@@ -15,6 +15,14 @@ public class Orders {
 	private float price;
 	private int custid;
 	private int pid;
+	private String pname;
+	
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
 	public int getOrderid() {
 		return orderid;
 	}
@@ -47,10 +55,9 @@ public class Orders {
 	}
 	@Override
 	public String toString() {
-		return "Order [orderid=" + orderid + ", orderdate=" + orderdate + ", price=" + price + ", custid=" + custid
-				+ ", pid=" + pid + "]";
+		return "Orders [orderid=" + orderid + ", orderdate=" + orderdate + ", price=" + price + ", custid=" + custid
+				+ ", pid=" + pid + ", pname=" + pname + "]";
 	}
-	
 	
 
 }
