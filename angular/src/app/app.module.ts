@@ -27,7 +27,6 @@ import { StoreCreditcardComponent } from './store-creditcard/store-creditcard.co
 import { UpdateCreditcardComponent } from './update-creditcard/update-creditcard.component';
 import { DeleteCreditcardComponent } from './delete-creditcard/delete-creditcard.component';
 import { GetCreditcardByidComponent } from './get-creditcard-byid/get-creditcard-byid.component';
-import { RetriveOrdersByidComponent } from './retrive-orders-byid/retrive-orders-byid.component';
 import { StoreOrdersComponent } from './store-orders/store-orders.component';
 import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
 import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orders.component';
@@ -51,7 +50,7 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     RetrieveProductComponent,
     StoreProductComponent,
     UpdateProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
     RetriveAddressComponent,
     StoreAddressComponent,
     UpdateAddressComponent,
@@ -60,10 +59,9 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     UpdateCreditcardComponent,
     DeleteCreditcardComponent,
     GetCreditcardByidComponent,
-    RetriveOrdersByidComponent,
     StoreOrdersComponent,
     DeleteOrdersComponent,
-    RetriveAllOrdersComponent
+    RetriveAllOrdersComponent,
     UpdatecustomerDataComponent,
     StorecustomerDataComponent
 
