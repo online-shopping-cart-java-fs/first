@@ -8,23 +8,29 @@ import javax.persistence.Id;
 @Entity
 public class Customer {
  @Id
- private int custid;
+ private String username;
  private int accnum;
- 
  private String custname;
  private String password;
- private int debitnum;
+ 
+ private String address;
+ private long mobileno;
+public String getUsername() {
+	return username;
+}
+@Override
+public String toString() {
+	return "Customer [username=" + username + ", accnum=" + accnum + ", custname=" + custname + ", password=" + password
+			+  ", address=" + address + ", mobileno=" + mobileno + "]";
+}
+public void setUsername(String username) {
+	this.username = username;
+}
 public int getAccnum() {
 	return accnum;
 }
 public void setAccnum(int accnum) {
 	this.accnum = accnum;
-}
-public int getCustid() {
-	return custid;
-}
-public void setCustid(int custid) {
-	this.custid = custid;
 }
 public String getCustname() {
 	return custname;
@@ -38,16 +44,16 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public int getDebitnum() {
-	return debitnum;
+public String getAddress() {
+	return address;
 }
-public void setDebitnum(int debitnum) {
-	this.debitnum = debitnum;
+public void setAddress(String address) {
+	this.address = address;
 }
-@Override
-public String toString() {
-	return "Customer [accnum=" + accnum + ", custid=" + custid + ", custname=" + custname + ", password=" + password
-			+ ", debitnum=" + debitnum + "]";
+public long getMobileno() {
+	return mobileno;
 }
- 
+public void setMobileno(long mobileno) {
+	this.mobileno = mobileno;
 }
+ }

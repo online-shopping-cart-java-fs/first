@@ -13,16 +13,8 @@ public class Orders {
 	private int orderid;
 	private Date orderdate;
 	private float price;
-	private int custid;
+	private String username;
 	private int pid;
-	private String pname;
-	
-	public String getPname() {
-		return pname;
-	}
-	public void setPname(String pname) {
-		this.pname = pname;
-	}
 	public int getOrderid() {
 		return orderid;
 	}
@@ -41,23 +33,24 @@ public class Orders {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public int getCustid() {
-		return custid;
-	}
-	public void setCustid(int custid) {
-		this.custid = custid;
-	}
 	public int getPid() {
 		return pid;
 	}
 	public void setPid(int pid) {
 		this.pid = pid;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	@Override
 	public String toString() {
-		return "Orders [orderid=" + orderid + ", orderdate=" + orderdate + ", price=" + price + ", custid=" + custid
-				+ ", pid=" + pid + ", pname=" + pname + "]";
+		return "Orders [orderid=" + orderid + ", orderdate=" + orderdate + ", price=" + price + ", username=" + username
+				+ ", pid=" + pid + "]";
 	}
+	
 	
 
 }

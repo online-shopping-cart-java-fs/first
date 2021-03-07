@@ -13,17 +13,15 @@ public class JoinService {
 	@Autowired
 	JoinDao jd;
 	
-	public List<Object[]> getCustomerCreditNumDetails(int custid) {
-		return jd.getCustomerAccountDetails(custid);
+	
+	public List<Object[]> getCustomerAddressDetails(String username) {
+		return jd.getCustomerAddressInfo(username);
 	}
 	
-	public List<Object[]> getCustomerAddressDetails(int custid) {
-		return jd.getCustomerAddressInfo(custid);
-	}
-
-	public List<Object[]> getOrdersDetails(int custid) {
+	public List<Object[]> getCustomerOrdersDetails(String username) {
 		
-		return jd.getCustomerOrderDetails(custid);
+		
+		return jd.getCustomerOrdersInfo(username);
 	}
 	
 	

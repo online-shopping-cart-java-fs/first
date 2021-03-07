@@ -2,6 +2,7 @@ package onlineshopping.dao;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
@@ -14,33 +15,32 @@ public class JoinDao {
 	@Autowired
 	EntityManagerFactory emf;
 
-	public List<Object[]> getCustomerAccountDetails(int custid) {
-						EntityManager manager  = emf.createEntityManager();
-			Query qry =
-	manager.createNativeQuery("select c.custid,c.custname,cc.creditcardnum,cc.accnum,cc.debitnum from customer c,creditcard cc where c.custid=cc.custid and c.custid = :custId");
-						
-						qry.setParameter("custId", custid);
-						List<Object[]> list = qry.getResultList();
-						return list;
-	}
 	
-	public List<Object[]> getCustomerAddressInfo(int custid) {
+	public List<Object[]> getCustomerAddressInfo(String username) {
 		EntityManager manager  = emf.createEntityManager();
 Query qry =
-manager.createNativeQuery("select c.custid,c.custname,ad.addid,ad.streetname,ad.city,ad.state,ad.pin from customer c,address ad where c.custid=ad.custid and c.custid = :custId");
+manager.createNativeQuery("select c.username,c.custname,ad.addid,ad.streetname,ad.city,ad.state,ad.pin from customer c,address ad where c.username=ad.username and c.username = :username");
 		
-		qry.setParameter("custId", custid);
+		qry.setParameter("username", username);
 		List<Object[]> list = qry.getResultList();
 		return list;
 }
-
 	
-
-	public List<Object[]> getCustomerOrderDetails(int custid) {
+	
+	
+	public List<Object[]> getCustomerOrdersInfo(String username) {
 		EntityManager manager  = emf.createEntityManager();
-		Query qry=manager.createNativeQuery("select  c.custid,c.custname,o.orderid,o.orderdate from customer c,orders o where c.custid=o.custid and c.custid = :custId");
-		qry.setParameter("custId", custid);
+		
+		
+Query qry =
+manager.createNativeQuery("select c.username,c.custname,o.orderid,o.orderdate,p.pid,p.pname,p.price from customer c join orders o on c.username=o.username join product p on o.pid=p.pid and c.username = :username");
+		
+		qry.setParameter("username", username);
+
 		List<Object[]> list = qry.getResultList();
+	
+	
 		return list;
-	}
+}
+
 }
