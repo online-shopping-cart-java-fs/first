@@ -1,7 +1,6 @@
 package onlineshopping.service;
 
-import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
 
 
@@ -22,23 +21,22 @@ public class CustomerService {
 		return cr.findAll();
 	   }
 	
-	public Optional<Customer> getCustomerSpringData(int custid) {
+	public Customer getCustomerSpringDataById(String username) {
 		
-		Optional<Customer>op=cr.findById(custid);
+		Optional<Customer>op=cr.findById(username);
 
 		if(op.isPresent()) {
-			return op;
-		}
+			return op.get();
+		}else {
 		return null;
-			   
-		
 		}
+	}
 
 	
 	
 	
 	public String storeCustomerSpringData(Customer cc) {
-		Optional<Customer>op=cr.findById(cc.getCustid());
+		Optional<Customer>op=cr.findById(cc.getUsername());
 		if(op.isPresent()) {
 			return "Record already present";
 		}else {
@@ -52,11 +50,11 @@ public class CustomerService {
 	}
 
 	
-	public String deleteCustomerSpringData(int custid) {
+	public String deleteCustomerSpringData(String username) {
 		
 		 
-		if(cr.existsById(custid)) {
-			cr.deleteById(custid);
+		if(cr.existsById(username)) {
+			cr.deleteById(username);
 			return "Record deleted successfully";
 		}else {
 			return "Record not present";
@@ -67,11 +65,12 @@ public class CustomerService {
 	
 	public String updateCustomerSpringData(Customer cc) {
 
-	     Optional<Customer> obj=cr.findById(cc.getCustid());
+	     Optional<Customer> obj=cr.findById(cc.getUsername());
 		   if(obj.isPresent()) {
 			Customer c=obj.get();
 			if(c!=null) {
-			c.setCustname(cc.getCustname());
+		
+//			c.setMobileno(cc.getMobileno());
 			c.setPassword(cc.getPassword());
 	        cr.saveAndFlush(c);
 	        return "Record updated successfully";

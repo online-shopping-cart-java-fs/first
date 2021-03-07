@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import onlineshopping.bean.Customer;
 import onlineshopping.bean.Orders;
 
 import onlineshopping.dao.OrderRepository;
@@ -20,7 +20,7 @@ public class OrderService {
 	public List<Orders> getOrderDetailsFromSpringData() {
 		return orderRepository.findAll();
 	}
-
+	
 	public String storeOrderSpringData(Orders aa) {
 		Optional<Orders> op = orderRepository.findById(aa.getOrderid());
 		if(op.isPresent()) {
