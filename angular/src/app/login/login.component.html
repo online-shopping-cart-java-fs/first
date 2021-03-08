@@ -3,24 +3,24 @@
     <form #userRef="ngForm" (ngSubmit)="checkUser(userRef.value)">
         <div class="form-group">
         <label>Username</label>
-        <input type="text" name="user" class="form-control form-control-lg"  placeholder="Enter Username" ngModel/>
+        <input type="text" name="user" class="form-control form-control-lg"  placeholder="Enter Username" required ngModel/>
         </div>
         <div class="form-group">
         <label>Password</label>
-        <input type="password" name="pass" class="form-control form-control-lg" placeholder="Enter Password" ngModel/><br/>
+        <input type="password" name="pass" class="form-control form-control-lg" placeholder="Enter Password" required ngModel/>
         </div>
         <div class="form-group">
-        <input type="radio" name="cat" value="admin" ngModel/>&nbsp;
+        <input type="radio" name="cat" value="admin" required ngModel/>&nbsp;
         <label class="inline">Admin</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="cat" value="customer" ngModel/>&nbsp;
+        <input type="radio" name="cat" value="customer" required ngModel/>&nbsp;
         <label class="inline">Customer</label>
+        <a class="float-right" routerLink="/signup">Sign Up</a>
         </div>
         <div class="form-group">
-        <input type="submit" value="submit" class="btn btn-lg btn-primary btn-block"/>
+        <input type="submit" value="Sign In" class="btn btn-lg btn-primary btn-block" [disabled]="!userRef.valid"/>
         </div>
         <div class="form-group">
-        <input type="reset" value="reset" class="btn btn-lg btn-dark btn-block"/>
+        <input type="reset" value="Reset" class="btn btn-lg btn-dark btn-block"/>
         </div>
     </form>
-    {{msg}}
 </div>

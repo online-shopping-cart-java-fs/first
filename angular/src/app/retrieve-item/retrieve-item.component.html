@@ -1,15 +1,17 @@
-<div>
-    <input type="button" value="See All Categories" (click)="getAllItems()"/>
-    <div *ngIf="flag">
-        <table border="1">
-        <tr>
-            <th>ItemId</th>
-            <th>ItemName</th>
-        </tr>
-        <tr *ngFor="let item of itemInfo">
-                <td>{{item.itemid}}</td>
-                <td>{{item.itemname}}</td>
-        </tr>
-        </table>
+<div  class="row card-deck text-center">
+    <div *ngFor="let item of itemInfo" class="col-lg-4">
+        <div class="card mb-4"  >
+            <img height="50%" class="card-img-top" src="../../assets/{{item.itemname}}.jpg" alt="{{item.itemname}}">
+            <div class="card-body">
+                <h4 class="card-title ">{{item.itemname}}</h4>
+                <div class="text-left">
+                    <p class="card-test"><strong>Id: </strong>{{item.itemid}}</p>
+                    <p class="card-text"><strong>Category: </strong>{{item.itemname}}</p>
+                </div>
+                <br>
+                <button [routerLink]="['allproductsbycat',item.itemid]" class="btn btn-primary btn-lg" >See All</button>
+            </div>    
+        </div>  
     </div>
 </div>
+<router-outlet></router-outlet>

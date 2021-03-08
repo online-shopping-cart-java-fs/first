@@ -1,12 +1,19 @@
-<div>
-    <h4>storing item details</h4>
+<div style="width:35%; margin: 25px auto" >
+    <div class="alert alert-primary" role="alert">
+        Status: {{msg}}    
+    </div>
     <form [formGroup]="itemInfo" (ngSubmit)="storeItem()">
-        <label>ItemId</label>
-        <input type="number" formControlName="itemid"/><br/>
-        <label>ItemName</label>
-        <input type="text" formControlName="itemname"/><br/>
-        <input type="submit" value="store item info"/>
-        <input type="reset" value="reset"/>
+        <div class="form-group">
+        <input type="number" formControlName="itemid" class="form-control form-control-lg" placeholder="Enter Id"/>
+        </div>
+        <div class="form-group">
+        <input type="text" formControlName="itemname" class="form-control form-control-lg" placeholder="Category"/>
+        </div>
+        <div class="form-group">
+        <input type="submit" value="Add Item" class="btn btn-lg btn-primary btn-block"/>
+        </div>
+        <div class="form-group">
+        <input type="reset" value="Reset" class="btn btn-lg btn-secondary btn-block"/>
+        </div>
     </form>
-    {{msg}}
 </div>

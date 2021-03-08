@@ -14,12 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
-import { HeaderHomeComponent } from './header-home/header-home.component';
-import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
-import { StoreProductComponent } from './store-product/store-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
-import { RetriveAddressComponent } from './retrive-address/retrive-address.component';
 import { StoreAddressComponent } from './store-address/store-address.component';
 import { UpdateAddressComponent } from './update-address/update-address.component';
 import { DeleteAddressComponent } from './delete-address/delete-address.component';
@@ -32,6 +28,10 @@ import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
 import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orders.component';
 import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
 import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-data.component';
+import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
+import { StoreProductComponent } from './store-product/store-product.component';
+import { PageHomeComponent } from './page-home/page-home.component';
+import { RetrieveProductbyidComponent } from './retrieve-productbyid/retrieve-productbyid.component';
 
 
 @NgModule({
@@ -46,12 +46,15 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    HeaderHomeComponent,
     RetrieveProductComponent,
     StoreProductComponent,
     UpdateProductComponent,
     DeleteProductComponent,
+
+    RetrieveItemComponent,
+
     RetriveAddressComponent,
+
     StoreAddressComponent,
     UpdateAddressComponent,
     DeleteAddressComponent,
@@ -63,9 +66,9 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     DeleteOrdersComponent,
     RetriveAllOrdersComponent,
     UpdatecustomerDataComponent,
-    StorecustomerDataComponent
-
-
+    StorecustomerDataComponent,
+    PageHomeComponent,
+    RetrieveProductbyidComponent,
 
   ],
   imports: [
@@ -76,6 +79,6 @@ import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-d
     ReactiveFormsModule,
   ],
   providers: [MyGaurds],
-  bootstrap: [AppComponent,LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
