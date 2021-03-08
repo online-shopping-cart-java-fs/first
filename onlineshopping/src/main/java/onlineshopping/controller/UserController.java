@@ -21,6 +21,7 @@ import onlineshopping.bean.Cart;
 import onlineshopping.bean.Customer;
 import onlineshopping.bean.Item;
 import onlineshopping.bean.Product;
+import onlineshopping.bean.ProductItem;
 import onlineshopping.service.AddressService;
 import onlineshopping.service.CartService;
 import onlineshopping.service.CustomerService;
@@ -60,14 +61,15 @@ public class UserController {
 		return itemService.getAllItems();
 	} 
 		
-	@GetMapping(value = "getAllProducts",produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Product> getAllProducts() {
-		return productService.getAllProducts();
-	} 
+	@GetMapping(value = "getAllProducts")
+	public ResponseEntity<List<ProductItem>> getAllProducts(){
+		List<ProductItem> productItemDetails = productItemService.getAllProducts();
+		return ResponseEntity.status(200).body(productItemDetails);
+	}
 	
 	@GetMapping(value = "getAllProductsByCategory/{itemid}")
-	public ResponseEntity<List<Object[]>> getAllProductsByCategory(@PathVariable("itemid") int itemid){
-		List<Object[]> productItemDetails = productItemService.getAllProductsByCategory(itemid);
+	public ResponseEntity<List<ProductItem>> getAllProductsByCategory(@PathVariable("itemid") int itemid){
+		List<ProductItem> productItemDetails = (List<ProductItem>) productItemService.getAllProductsByCategory(itemid);
 		return ResponseEntity.status(200).body(productItemDetails);
 	}
 	

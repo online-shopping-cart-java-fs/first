@@ -52,7 +52,9 @@ import { RetriveAddressComponent } from './retrive-address/retrive-address.compo
     UpdateProductComponent,
     DeleteProductComponent,
     RetrieveItemComponent,
+
     RetriveAddressComponent,
+
     StoreAddressComponent,
     UpdateAddressComponent,
     DeleteAddressComponent,
