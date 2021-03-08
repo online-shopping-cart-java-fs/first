@@ -21,6 +21,7 @@ import onlineshopping.bean.Customer;
 import onlineshopping.bean.Item;
 import onlineshopping.bean.Orders;
 import onlineshopping.bean.Product;
+import onlineshopping.bean.ProductItem;
 import onlineshopping.service.AddressService;
 import onlineshopping.service.CustomerService;
 import onlineshopping.service.ItemService;
@@ -78,19 +79,17 @@ public class AdminController {
 		return itemService.deleteItem(itemid);
 	} 
 	
-	@GetMapping(value = "getAllProducts",produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Product> getAllProduct() {
-		return productService.getAllProducts();
-	} 
-	
-	@GetMapping(value = "getAllProductsByCategory/{itemid}")
-	public ResponseEntity<List<Object[]>> getAllProductsByCategory(@PathVariable("itemid") int itemid){
-		List<Object[]> productItemDetails = productItemService.getAllProductsByCategory(itemid);
+	@GetMapping(value = "getAllProducts")
+	public ResponseEntity<List<ProductItem>> getAllProducts(){
+		List<ProductItem> productItemDetails = productItemService.getAllProducts();
 		return ResponseEntity.status(200).body(productItemDetails);
 	}
 	
-	
-	
+	@GetMapping(value = "getAllProductsByCategory/{itemid}")
+	public ResponseEntity<List<ProductItem>> getAllProductsByCategory(@PathVariable("itemid") int itemid){
+		List<ProductItem> productItemDetails = (List<ProductItem>) productItemService.getAllProductsByCategory(itemid);
+		return ResponseEntity.status(200).body(productItemDetails);
+	}
 		
 	@PostMapping(value = "storeProductData",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.TEXT_PLAIN_VALUE)
 	public String storeProductData(@RequestBody Product p) {
