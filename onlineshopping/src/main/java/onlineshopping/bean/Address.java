@@ -8,8 +8,8 @@ import javax.persistence.Table;
 @Table(name="address")
 public class Address {
 	@Id
-	private int addId;
-	private String streetName;
+	private int addid;
+	private String streetname;
 	
 	private String city;
 	
@@ -17,22 +17,28 @@ public class Address {
 	
 	private int pin;
 	
-	private int custId;
+	private String username;
 
-	public int getAddId() {
-		return addId;
+	@Override
+	public String toString() {
+		return "Address [addid=" + addid + ", streetname=" + streetname + ", city=" + city + ", state=" + state
+				+ ", pin=" + pin + ", username=" + username + "]";
 	}
 
-	public void setAddId(int addId) {
-		this.addId = addId;
+	public int getAddid() {
+		return addid;
 	}
 
-	public String getStreetName() {
-		return streetName;
+	public void setAddid(int addid) {
+		this.addid = addid;
 	}
 
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
+	public String getStreetname() {
+		return streetname;
+	}
+
+	public void setStreetname(String streetname) {
+		this.streetname = streetname;
 	}
 
 	public String getCity() {
@@ -59,20 +65,15 @@ public class Address {
 		this.pin = pin;
 	}
 
-	public int getCustId() {
-		return custId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setCustId(int custId) {
-		this.custId = custId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	@Override
-	public String toString() {
-		return "Address [addId=" + addId + ", streetName=" + streetName + ", city=" + city + ", state=" + state
-				+ ", pin=" + pin + ", custId=" + custId + "]";
-	}
-	
+		
 		}
 	
 	

@@ -50,7 +50,11 @@ import { RetrieveProductbyidComponent } from './retrieve-productbyid/retrieve-pr
     StoreProductComponent,
     UpdateProductComponent,
     DeleteProductComponent,
+
     RetrieveItemComponent,
+
+    RetriveAddressComponent,
+
     StoreAddressComponent,
     UpdateAddressComponent,
     DeleteAddressComponent,

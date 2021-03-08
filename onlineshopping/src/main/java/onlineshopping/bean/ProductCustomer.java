@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class ProductCustomer {
 	private int pid;
 	@Id
-	private int custId;
+	private String username;
 	private int debitCardNum;
 	private int creditCardNum;
 	public int getPid() {
@@ -18,11 +18,11 @@ public class ProductCustomer {
 	public void setPid(int pid) {
 		this.pid = pid;
 	}
-	public int getCustId() {
-		return custId;
+	public String getUsername() {
+		return username;
 	}
-	public void setCustId(int custId) {
-		this.custId = custId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public int getDebitCardNum() {
 		return debitCardNum;
@@ -38,9 +38,8 @@ public class ProductCustomer {
 	}
 	@Override
 	public String toString() {
-		return "ProductCustomer [pid=" + pid + ", custId=" + custId + ", debitCardNum=" + debitCardNum
+		return "ProductCustomer [pid=" + pid + ", username=" + username + ", debitCardNum=" + debitCardNum
 				+ ", creditCardNum=" + creditCardNum + "]";
 	}
 	
-
 }

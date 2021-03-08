@@ -47,15 +47,13 @@ public class AdminController {
 	AddressService addressService;
 	
 	@Autowired
-	JoinService ccs;
+	JoinService js;
 	
 	@Autowired
 	CustomerService cs;
 	
 	@Autowired
-	OrderService orderService;
-	
-	
+	OrderService os;
 	
 	
 	//dashboard related operations
@@ -115,43 +113,45 @@ public class AdminController {
 			return cs.getAllCustomerFormSpringData();
 	}
 	
-	@GetMapping(value = "getCustomerData/{custid}")
-	public Optional<Customer> getCustomerSpringData(@PathVariable("custid") int custid) {
-			return cs.getCustomerSpringData(custid);
+	@GetMapping(value = "getCustomerDataByUsername/{username}")
+	public Customer getCustomerSpringData(@PathVariable("username") String username) {
+			return cs.getCustomerSpringDataById(username);
 	}
 	
-	@DeleteMapping(value = "deleteCustomerData/{custid}")
-	public String deleteCustomerSpringData(@PathVariable("custid") int custid) {
-			return cs.deleteCustomerSpringData(custid);
+	@DeleteMapping(value = "deleteCustomerData/{username}")
+	public String deleteCustomerSpringData(@PathVariable("username") String username) {
+			return cs.deleteCustomerSpringData(username);
 	}
 	
 	
-	@GetMapping(value = "creditinfo/{custid}")
-	public ResponseEntity<List<Object[]>> getCustomerCreditInfo(@PathVariable("custid") int custid){
-					List<Object[]> details = ccs.getCustomerCreditNumDetails(custid);
+	@GetMapping(value = "addressinfo/{username}")
+	public ResponseEntity<List<Object[]>> getCustomerAddressInfo(@PathVariable("username") String username){
+					List<Object[]> details = js.getCustomerAddressDetails(username);
+					return ResponseEntity.status(200).body(details);
+					
+	}
+	@DeleteMapping(value = "deleteAddressData/{addId}")
+	public String deleteAddressSpringData(@PathVariable("addId") int aid) {
+			return addressService.deleteAddressSpringData(aid);
+	}
+	
+	@GetMapping(value = "getAllOrders",produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getAllOrdersDetails() {
+		return os.getOrderDetailsFromSpringData();
+	} 
+	
+	
+	@GetMapping(value = "ordersinfo/{username}")
+	public ResponseEntity<List<Object[]>> getCustomerOrdersInfo(@PathVariable("username") String username){
+					List<Object[]> details = js.getCustomerOrdersDetails(username);
 				
 					return ResponseEntity.status(200).body(details);
 					
 	}
-	@GetMapping(value = "addressinfo/{custid}")
-	public ResponseEntity<List<Object[]>> getCustomerAddressInfo(@PathVariable("custid") int custid){
-					List<Object[]> details = ccs.getCustomerAddressDetails(custid);
-					
-					return ResponseEntity.status(200).body(details);
-					
-	}
 	
-	@GetMapping(value = "getorderinfo/{custid}")
-	public ResponseEntity<List<Object[]>> getCustomerOrderInfo(@PathVariable("custid") int custid){
-		List<Object[]> details = ccs.getOrdersDetails(custid);
-			return ResponseEntity.status(200).body(details);				
-		}
 	
-	@GetMapping(value = "getOrderInfo",produces = MediaType.APPLICATION_JSON_VALUE)
-		public List<Orders> getOrderDetailsFromSpringData(){
 	
-		return orderService.getOrderDetailsFromSpringData();
-				}
+
 	
 
 	

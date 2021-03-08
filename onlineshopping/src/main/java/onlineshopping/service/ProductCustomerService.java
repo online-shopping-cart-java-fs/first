@@ -19,7 +19,7 @@ public class ProductCustomerService {
 	}
 
 	public String storeProductCustomerSpringData(ProductCustomer pc) {
-		Optional<ProductCustomer> op = productCustomerRepository.findById(pc.getCustId());
+		Optional<ProductCustomer> op = productCustomerRepository.findById(pc.getUsername());
 		if(op.isPresent()) {
 			return "Record already present";
 		}else {
@@ -33,7 +33,7 @@ public class ProductCustomerService {
 	}
 
 	public String updateProductCustomerSpringData(ProductCustomer pc) {
-		Optional<ProductCustomer> obj = productCustomerRepository.findById(pc.getCustId());
+		Optional<ProductCustomer> obj = productCustomerRepository.findById(pc.getUsername());
 		if(obj.isPresent()) 
 		{
 			ProductCustomer c	 = obj.get();
@@ -48,10 +48,10 @@ public class ProductCustomerService {
 		}
 	}
 
-	public String deleteProductCustomerSpringData(int custId) {
-		if(productCustomerRepository.existsById(custId))
+	public String deleteProductCustomerSpringData(String username) {
+		if(productCustomerRepository.existsById(username))
 		{
-			productCustomerRepository.deleteById(custId);
+			productCustomerRepository.deleteById(username);
 			return "Record deleted successfully";
 		}else {
 			return "Record not present";

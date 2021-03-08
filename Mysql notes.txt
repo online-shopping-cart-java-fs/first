@@ -1,0 +1,46 @@
+1.Adding foreign key constraint
+parent table->Person,child table->orders
+
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID) On delete cascade on update cascade
+);
+
+----------------------------------------
+2.Adding foreign key in existing table
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+---------------------------
+3.Drop foreign key
+ALTER TABLE Orders
+DROP FOREIGN KEY FK_PersonOrder;
+--------------------------------
+4.change data type
+ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+-------------------
+5.change datatype with not null constraint
+ALTER TABLE table_name MODIFY column_name datatype NOT NULL;
+-----------------
+6.drop a constraint
+ALTER TABLE table_name 
+DROP CONSTRAINT MyUniqueConstraint;
+------------------
+7.Rename a column
+ALTER TABLE table_name
+RENAME COLUMN old_name TO new_name;
+--------------
+8.add a column
+ALTER TABLE table_name
+ADD column_name datatype;
+--------------
+9. drop a column
+ALTER TABLE table_name
+DROP COLUMN column_name;
+------------
+  

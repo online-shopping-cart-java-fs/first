@@ -23,7 +23,7 @@ public class AddressService {
 	
 
 	public String storeCreditCardSpringData(Address aa) {
-		Optional<Address> op = addressRepository.findById(aa.getAddId());
+		Optional<Address> op = addressRepository.findById(aa.getAddid());
 		if(op.isPresent()) {
 			return "Record already present";
 		}else {
@@ -37,11 +37,11 @@ public class AddressService {
 	}
 
 	public String updateAddressSpringData(Address aa) {
-		Optional<Address> obj = addressRepository.findById(aa.getAddId());
+		Optional<Address> obj = addressRepository.findById(aa.getAddid());
 		if(obj.isPresent()) 
 		{
 			Address c	 = obj.get();
-			c.setStreetName(aa.getStreetName());
+			c.setStreetname(aa.getStreetname());
 			c.setCity(aa.getCity());
 			c.setState(aa.getState());
 			c.setPin(aa.getPin());
