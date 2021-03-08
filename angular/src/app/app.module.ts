@@ -32,6 +32,7 @@ import { RetrieveProductComponent } from './retrieve-product/retrieve-product.co
 import { StoreProductComponent } from './store-product/store-product.component';
 import { PageHomeComponent } from './page-home/page-home.component';
 import { RetrieveProductbyidComponent } from './retrieve-productbyid/retrieve-productbyid.component';
+import { RetriveAddressComponent } from './retrive-address/retrive-address.component';
 
 
 @NgModule({
@@ -50,11 +51,8 @@ import { RetrieveProductbyidComponent } from './retrieve-productbyid/retrieve-pr
     StoreProductComponent,
     UpdateProductComponent,
     DeleteProductComponent,
-
     RetrieveItemComponent,
-
     RetriveAddressComponent,
-
     StoreAddressComponent,
     UpdateAddressComponent,
     DeleteAddressComponent,

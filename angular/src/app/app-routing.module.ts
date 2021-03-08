@@ -29,9 +29,13 @@ const routes: Routes = [
   ]},
   {path:"\customer",component:CustomerDashboardComponent},
   {path:"\admin",component:AdminDashboardComponent,canActivate:[MyGaurds],children:[
+
     {path:"\category",component:RetrieveItemComponent,children:[
+
       {path:"\allproductsbycat/:item.itemid",component:RetrieveProductbyidComponent},
+      
     ]},
+
     {path:"\allproducts",component:RetrieveProductComponent},
     {path:"\additems",component:StoreItemComponent},
     {path:"\itemupdate",component:UpdateItemComponent},
