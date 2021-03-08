@@ -1,20 +1,33 @@
-<div>
-    <h2>SignUp page</h2>
-    <form>
-        <label>CustomerId</label>
-        <input type="number" FormControlName="custId"/><br/>
-        <label>Account Number</label>
-        <input type="number" FormControlName="accNo"/><br/>
-        <label>Name</label>
-        <input type="text" FormControlName="custName"/><br/>
-        <label>Password</label>
-        <input type="password" FormControlName="pass"/><br/>
-        <label>Debit Card Number</label>
-        <input type="number" FormControlName="debNo"/><br/>
-        <input type="submit" value="submit"/>
-        <input type="reset" value="reset"/>
-    </form>
+<h2 align="center" class="display-4 mb-5">Sign Up</h2>
+<div style="width:40%; margin: 25px auto" >
+    <form [formGroup]="customerInfo" (ngSubmit)="storeCustomerDetails()">  
+        <div class="form-group">      
+        <label><b>CustomerId</b></label>
+        <input type="number" formControlName="custid"  class="form-control form-control-lg" placeholder="Enter Id" required>
+        </div>
+        <div class="form-group">
+        <label><b>Account Number</b></label>  
+        <input type="number" formControlName="accnum"  class="form-control form-control-lg" placeholder="Account Number">
+        </div>
+        <div class="form-group">
+        <label><b>Name</b></label>
+        <input type="text" formControlName="custname" class="form-control form-control-lg" placeholder="Your Name">
+        </div>
+        <div class="form-group">
+        <label><b>Password</b></label>
+        <input type="text" formControlName="password" class="form-control form-control-lg"  placeholder="Password">
+        </div>
+        <div class="form-group">
+        <label><b>Debit Card Number</b></label>
+        <input type="number" formControlName="debitnum"  class="form-control form-control-lg" placeholder="Debit Card Number">
+        </div>
+        <div class="form-group">
+        <input type="submit"  value="Sign Up" class="btn btn-lg btn-primary btn-block">
+        </div>
+        <div class="form-group"> 
+        <input type="reset"  value="Reset" class="btn btn-lg btn-dark btn-block">
+        </div> 
+    </form> 
+    {{msg}}
 </div>
 
-    <app-storecustomer-data></app-storecustomer-data>
-</div>

@@ -1,24 +1,37 @@
-<div>
-    <div align="right">
-        <input type="button" value="logout" (click)="logout()"/>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Welcome {{userName}}</a>
+    <div class="navbar-nav ml-auto">
+        <div align="right">
+            <input type="button" value="logout" class="btn btn-link" (click)="logout()"/>
+        </div>
     </div>
-    <h2>Welcome to dashboard {{userName}}</h2>
+</nav>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="category">See All Categories</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="allproducts">See All Products</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="additems">Add Items</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="itemupdate">Update Item</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="deleteitem">Delete Item</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="addproducts">Add Products</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="productupdate">Update Product</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="deleteproduct">Delete Product</a>
+    </li>
+  </ul>
+  <br/>
+<router-outlet></router-outlet>
 
-</div>
-<div>
-    <app-retrieve-item></app-retrieve-item>
-    <hr/>
-    <app-store-item></app-store-item>
-    <hr/>
-    <app-update-item></app-update-item>
-    <hr/>
-    <app-delete-item></app-delete-item>
-    <hr/>
-    <app-retrieve-product></app-retrieve-product>
-    <hr/>
-    <app-store-product></app-store-product>
-    <hr/>
-    <app-update-product></app-update-product>
-    <hr/>
-    <app-delete-product></app-delete-product>
-</div>

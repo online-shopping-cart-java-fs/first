@@ -26,5 +26,4 @@ export class StorecustomerDataComponent implements OnInit {
     this.customerSer.storeCustomerInfo(customerRef).subscribe(result=>this.msg=result)
   }
 
-
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Item } from '../item.model';
 import { ItemService } from '../item.service';
 
@@ -10,15 +11,10 @@ import { ItemService } from '../item.service';
 export class RetrieveItemComponent implements OnInit {
 
   itemInfo:Array<Item>=[];
-  flag:boolean = false;
 
-  constructor(public itemSer:ItemService) { }
+  constructor(public router:Router,public itemSer:ItemService) { }
 
   ngOnInit(): void {
-  }
-
-  getAllItems() {
-    this.flag=true;
     this.itemSer.getItemData().subscribe(data=>this.itemInfo=data);
   }
 

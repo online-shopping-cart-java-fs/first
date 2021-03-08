@@ -1,12 +1,19 @@
-<div>
-    <h4>updating item</h4>
+<div style="width:35%; margin: 25px auto" >
+    <div class="alert alert-success" role="alert">
+        Status: {{msg}}    
+    </div>
     <form #itemRef="ngForm" (ngSubmit)="updateItem(itemRef.value)">
-        <label>ItemId</label>
-        <input type="number" name="itemid" ngModel/><br/>
-        <label>ItemName</label>
-        <input type="text" name="itemname" ngModel/><br/>
-        <input type="submit" value="Update"/>
-        <input type="reset" value="reset"/>
+        <div class="form-group">
+        <input type="number" name="itemid" class="form-control form-control-lg" placeholder="Enter Id" ngModel/>
+        </div>
+        <div class="form-group">
+        <input type="text" name="itemname" class="form-control form-control-lg" placeholder="Category" ngModel/>
+        </div>
+        <div class="form-group">
+        <input type="submit" value="Update Item" class="btn btn-lg btn-success btn-block"/>
+        </div>
+        <div>
+        <input type="reset" value="reset" class="btn btn-lg btn-secondary btn-block"/>
+        </div>
     </form>
-    {{msg}}
 </div>

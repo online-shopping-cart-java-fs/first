@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RetriveOrdersByidComponent } from './retrive-orders-byid.component';
+import { PageHomeComponent } from './page-home.component';
 
-describe('RetriveOrdersByidComponent', () => {
-  let component: RetriveOrdersByidComponent;
-  let fixture: ComponentFixture<RetriveOrdersByidComponent>;
+describe('PageHomeComponent', () => {
+  let component: PageHomeComponent;
+  let fixture: ComponentFixture<PageHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RetriveOrdersByidComponent ]
+      declarations: [ PageHomeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RetriveOrdersByidComponent);
+    fixture = TestBed.createComponent(PageHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
