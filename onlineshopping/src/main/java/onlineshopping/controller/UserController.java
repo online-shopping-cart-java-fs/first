@@ -1,7 +1,7 @@
 package onlineshopping.controller;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,13 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 import onlineshopping.bean.Address;
 import onlineshopping.bean.Cart;
 import onlineshopping.bean.Customer;
+import onlineshopping.bean.CustomerOrders;
 import onlineshopping.bean.Item;
+import onlineshopping.bean.Orders;
 import onlineshopping.bean.Product;
 import onlineshopping.bean.ProductItem;
 import onlineshopping.service.AddressService;
 import onlineshopping.service.CartService;
+import onlineshopping.service.CustomerOrdersService;
 import onlineshopping.service.CustomerService;
 import onlineshopping.service.ItemService;
+import onlineshopping.service.OrderService;
 import onlineshopping.service.ProductItemService;
 import onlineshopping.service.ProductService;
 
@@ -52,6 +56,11 @@ public class UserController {
 	@Autowired
 	CustomerService cs;
 	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	CustomerOrdersService customerOrdersService;
 	
 	
 	// dashboard related operations
@@ -60,6 +69,12 @@ public class UserController {
 	public List<Item> getAllItems() {
 		return itemService.getAllItems();
 	} 
+	
+	@GetMapping(value = "getProduct/{pid}",produces=MediaType.APPLICATION_JSON_VALUE)
+	public Optional<Product> getProduct(@PathVariable("pid") int pid) {
+		return productService.getProduct(pid);
+	} 
+		
 		
 	@GetMapping(value = "getAllProducts")
 	public ResponseEntity<List<ProductItem>> getAllProducts(){
@@ -78,10 +93,10 @@ public class UserController {
 		return cartService.getAllFromCart();
 	} 
 	
-	@PostMapping(value= "storeToCart/{pid}",produces=MediaType.TEXT_PLAIN_VALUE)
-	public String storeToCart(@PathVariable("pid") int pid ) {
-		return cartService.storeToCart(pid);
-	} 
+	@PostMapping(value = "storeToCart",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.TEXT_PLAIN_VALUE)
+	public String storeToCart(@RequestBody Cart c) {
+		return cartService.storeToCart(c);
+	}
 	
 	@DeleteMapping(value= "deleteFromCart/{cid}",produces=MediaType.TEXT_PLAIN_VALUE)
 	public String deleteFromCart(@PathVariable("cid") int cid ) {
@@ -119,27 +134,46 @@ public class UserController {
 	} 
 	
 
-		@PostMapping(value = "storeAddressData",consumes = MediaType.APPLICATION_JSON_VALUE)
-		public String storeAddressSpringData(@RequestBody Address aa) {
-			return addressService.storeCreditCardSpringData(aa);
-				}
+	@PostMapping(value = "storeAddressData",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String storeAddressSpringData(@RequestBody Address aa) {
+		return addressService.storeCreditCardSpringData(aa);
+	}	
+		
+	@PutMapping(value = "updateAddressData",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String updateAddressSpringData(@RequestBody Address aa) {
+		return addressService.updateAddressSpringData(aa);
+	}
 		
 		
-		@PutMapping(value = "updateAddressData",consumes = MediaType.APPLICATION_JSON_VALUE)
-		public String updateAddressSpringData(@RequestBody Address aa) {
-			return addressService.updateAddressSpringData(aa);
-				}
+	@PutMapping(value = "updateCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
+	public String updateCustomerSpringData(@RequestBody Customer cc) {
+		return cs.updateCustomerSpringData(cc);
+	}
 		
-		
-		
-		@PutMapping(value = "updateCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
-		public String updateCustomerSpringData(@RequestBody Customer cc) {
-				return cs.updateCustomerSpringData(cc);
-		}
-		
-		@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
-		public String storeCustomerSpringData(@RequestBody Customer cc) {
-			return cs.storeCustomerSpringData(cc);
-		}
+	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String storeCustomerSpringData(@RequestBody Customer cc) {
+		return cs.storeCustomerSpringData(cc);
+	}
+	
+	@DeleteMapping(value = "deleteCustomerData/{username}")
+	public String deleteCustomerSpringData(@PathVariable("username") String username) {
+			return cs.deleteCustomerSpringData(username);
+	}
+	
+	@PostMapping(value = "storeOrderData",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.TEXT_PLAIN_VALUE)
+	public String storeOrderData(@RequestBody Orders o) {
+		return orderService.storeOrder(o);
+	}
+	
+	@GetMapping(value = "getAllOrdersByCustomer/{username}")
+	public ResponseEntity<List<CustomerOrders>> getAllOrdersByCustomer(@PathVariable("username") String username){
+		List<CustomerOrders> customerOrderDetails = (List<CustomerOrders>) customerOrdersService.getAllOrdersByCustomer(username);
+		return ResponseEntity.status(200).body(customerOrderDetails);
+	}
+	
+	@DeleteMapping(value= "deleteOrderData/{orderid}",produces=MediaType.TEXT_PLAIN_VALUE)
+	public String deleteOrderData(@PathVariable("orderid") int orderid ) {
+		return orderService.deleteOrder(orderid);
+	} 
 		
 }

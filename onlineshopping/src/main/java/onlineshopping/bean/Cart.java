@@ -12,12 +12,20 @@ public class Cart {
 	private int cid;
 	private String cname;
 	private float cprice;
+	private int caid;
 	
 	public int getCid() {
 		return cid;
 	}
 	public String getCname() {
 		return cname;
+	}
+	
+	public void setCaid(int caid) {
+		this.caid = caid;
+	}
+	public int getCaid() {
+		return caid;
 	}
 	public void setCid(int cid) {
 		this.cid = cid;
@@ -34,7 +42,7 @@ public class Cart {
 	
 	@Override
 	public String toString() {
-		return "Cart [cid=" + cid + ", cname=" + cname + ", cprice=" + cprice + "]";
+		return "Cart [cid=" + cid + ", cname=" + cname + ", cprice=" + cprice + ", caid=" + caid + "]";
 	}
 
 }

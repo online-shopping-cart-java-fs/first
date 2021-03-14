@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand">Welcome {{userName}}</a>
     <div class="navbar-nav ml-auto">
-        <div align="right">
-            <input type="button" value="logout" class="btn btn-link" (click)="logout()"/>
-        </div>
+      <a class="nav-item nav-link" (click)="logout()">Sign Out</a>
     </div>
 </nav>
 <ul class="nav nav-tabs">

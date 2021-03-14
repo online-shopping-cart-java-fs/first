@@ -10,10 +10,10 @@ import { CustomerService } from '../customer.service';
 })
 export class LoginComponent implements OnInit {
 
-  flag:boolean=false
-  customer:Array<Customer>=[]
+  customerRef=new Customer();
+  msg:string="";
 
-  constructor(public router:Router,public customerRef:CustomerService) { }
+  constructor(public router:Router,public customerSer:CustomerService) { }
 
   ngOnInit(): void {
   }
@@ -30,22 +30,27 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("name",user); 
         this.router.navigate(["/admin"])
       }else {
-        alert("Invalid Username or Customer Id")
+        alert("Invalid Username or Password")
       }
     }
     else{
-      this.customerRef.checkCustomer(userRef).subscribe(data=>{
-            this.customer=data;
-            for(let var1 of this.customer){
-              if(var1.custname==user && var1.password==pass) {
-                alert("Login Successful")
-                this.router.navigate(["/customer"])
-        }else{
-          alert("Invalid Username or Password")
+      this.customerSer.getCustomerByusername(user).subscribe(data=> {
+        if(data==null){
+        alert("Invalid Username")
+        }else {
+          this.msg = "";
+          this.customerRef=data;
+          console.log(this.customerRef.password)
+          if(user==this.customerRef.username && pass==this.customerRef.password){
+            alert("Login Successful")
+            sessionStorage.setItem("name",user); 
+            this.router.navigate(["/customer"])
+          }else {
+            alert("Invalid Password")
+          }
         }
-      }
       })
     }
   }
-
+  
 }

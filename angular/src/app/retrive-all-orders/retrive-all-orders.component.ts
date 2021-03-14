@@ -17,7 +17,7 @@ export class RetriveAllOrdersComponent implements OnInit {
   }
   getAllOrders(){
     this.flag=true;
-    this.orderSer.getOrderData().subscribe(data=>this.orderInfo=data);
+    //this.orderSer.getOrderData().subscribe(data=>this.orderInfo=data);
 
   }
 

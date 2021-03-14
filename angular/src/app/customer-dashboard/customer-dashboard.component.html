@@ -1,12 +1,25 @@
-<div>
-  
-    <div>
-        <div align="right">
-            <input type="button" value="logout" (click)="logout()"/>
-        </div>
-        <h2>Welcome to Customer dashboard {{userName}}</h2>
-    
-    </div> <br><br>
-    <app-updatecustomer-data></app-updatecustomer-data>
-
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Welcome {{user}}</a>
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link " routerLink="orders">
+        <i class="fas fa-list-ul"></i>
+        Orders
+      </a>
+      <a class="nav-item nav-link " routerLink="cart">
+        <i class="fas fa-shopping-cart"></i>
+        Cart
+      </a>
+      <a class="nav-item nav-link" routerLink="profile">{{user}}</a>
+      <a class="nav-item nav-link" (click)="logout()">Sign Out</a>
+    </div>
+</nav>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="categorycustomer">See All Categories</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="allproductscustomer">See All Products</a>
+    </li>
+  </ul>
+  <br/>
+<router-outlet></router-outlet>

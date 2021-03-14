@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Product } from "./product.model";
 import { ProductItem } from "./productitem.model";
 
 @Injectable({
@@ -11,8 +12,12 @@ import { ProductItem } from "./productitem.model";
   
     constructor(public httpClient:HttpClient) { }
   
-    getProductData(): Observable<ProductItem[]>{
+    getProductData():Observable<ProductItem[]>{
       return this.httpClient.get<ProductItem[]>("http://localhost:9191/admin/getAllProducts")
+    }
+
+    getProductById(pid:any):Observable<any>{
+      return this.httpClient.get("http://localhost:9191/user/getProduct/"+pid);
     }
 
     getProductDataById(itemid:any):Observable<ProductItem[]>{

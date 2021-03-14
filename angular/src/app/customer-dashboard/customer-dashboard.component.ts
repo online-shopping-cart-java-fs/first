@@ -7,13 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer-dashboard.component.css']
 })
 export class CustomerDashboardComponent implements OnInit {
-  userName:string="";
+
+  user:string="";
+  
   constructor(public router:Router) { }
 
   ngOnInit(): void {
+    
     let obj = sessionStorage.getItem("name");
     if(obj!=null){
-      this.userName=obj;
+      this.user=obj;
     }
   }
 
