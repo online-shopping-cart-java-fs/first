@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import onlineshopping.bean.Cart;
+import onlineshopping.bean.Item;
 import onlineshopping.bean.Product;
 import onlineshopping.dao.CartRepository;
 import onlineshopping.dao.ProductRepository;
@@ -25,24 +26,20 @@ public class CartService {
 		return cartRepository.findAll();
 	}
 	
-	public String storeToCart(int pid) {
+	public String storeToCart(Cart cc) {
 		
-		Optional<Product> op=productRepository.findById(pid);
-		Product p=op.get();
-		if(p!=null) {
-			Cart c=new Cart();
-			c.setCid(p.getPid());
-			c.setCname(p.getPname());
-			c.setCprice(p.getPrice());
-			cartRepository.save(c);
+		Optional<Cart> op=cartRepository.findById(cc.getCid());
+		if(op.isPresent()) {
+			return "Already Added";
+		}else {
+			Cart c=cartRepository.save(cc);
 			if(c!=null) {
 				return "Added to cart";
 			}else {
 				return "Unable to add";
 			}
-		}else {
-			return "Unable to add";
 		}
+		
 	}
 	
 	public String deleteFromCart(int cid) {

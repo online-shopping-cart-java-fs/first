@@ -11,7 +11,7 @@ import { ProductItem } from '../productitem.model';
 export class RetrieveProductbyidComponent implements OnInit {
 
   itemid:any;
-  msg:string=""
+  msg:string="";
   //productRef= new Product();
   productRef:Array<ProductItem>=[];
   constructor(private route:ActivatedRoute,public productSer:ProductService) {
@@ -20,7 +20,7 @@ export class RetrieveProductbyidComponent implements OnInit {
 
   ngOnInit(): void {
   this.route.paramMap.subscribe(params=>{
-    this.itemid=params.get('item.itemid');
+    this.itemid=params.get('itemid');
     this.productSer.getProductDataById(this.itemid).subscribe(data=> {
       if(data==null){
       this.msg = "No products under this category";

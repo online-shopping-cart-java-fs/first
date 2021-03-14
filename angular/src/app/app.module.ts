@@ -16,9 +16,6 @@ import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
-import { StoreAddressComponent } from './store-address/store-address.component';
-import { UpdateAddressComponent } from './update-address/update-address.component';
-import { DeleteAddressComponent } from './delete-address/delete-address.component';
 import { StoreCreditcardComponent } from './store-creditcard/store-creditcard.component';
 import { UpdateCreditcardComponent } from './update-creditcard/update-creditcard.component';
 import { DeleteCreditcardComponent } from './delete-creditcard/delete-creditcard.component';
@@ -27,12 +24,18 @@ import { StoreOrdersComponent } from './store-orders/store-orders.component';
 import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
 import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orders.component';
 import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
-import { StorecustomerDataComponent } from './storecustomer-data/storecustomer-data.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { StoreProductComponent } from './store-product/store-product.component';
 import { PageHomeComponent } from './page-home/page-home.component';
 import { RetrieveProductbyidComponent } from './retrieve-productbyid/retrieve-productbyid.component';
-import { RetriveAddressComponent } from './retrive-address/retrive-address.component';
+import { PageAdminComponent } from './page-admin/page-admin.component';
+import { StoretoCartComponent } from './storeto-cart/storeto-cart.component';
+import { RetrieveProductcustomerComponent } from './retrieve-productcustomer/retrieve-productcustomer.component';
+import { RetrieveItemcustomerComponent } from './retrieve-itemcustomer/retrieve-itemcustomer.component';
+import { RetrieveProductbyidcustomerComponent } from './retrieve-productbyidcustomer/retrieve-productbyidcustomer.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -52,12 +55,6 @@ import { RetriveAddressComponent } from './retrive-address/retrive-address.compo
     UpdateProductComponent,
     DeleteProductComponent,
     RetrieveItemComponent,
-
-    RetriveAddressComponent,
-
-    StoreAddressComponent,
-    UpdateAddressComponent,
-    DeleteAddressComponent,
     StoreCreditcardComponent,
     UpdateCreditcardComponent,
     DeleteCreditcardComponent,
@@ -66,9 +63,16 @@ import { RetriveAddressComponent } from './retrive-address/retrive-address.compo
     DeleteOrdersComponent,
     RetriveAllOrdersComponent,
     UpdatecustomerDataComponent,
-    StorecustomerDataComponent,
     PageHomeComponent,
     RetrieveProductbyidComponent,
+    PageAdminComponent,
+    StoretoCartComponent,
+    RetrieveProductcustomerComponent,
+    RetrieveItemcustomerComponent,
+    RetrieveProductbyidcustomerComponent,
+    ProfileComponent,
+    OrderDetailsComponent,
+    OrdersComponent,
 
   ],
   imports: [

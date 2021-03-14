@@ -1,0 +1,25 @@
+<h2 align="center" class="display-4 mb-5">Your Orders</h2>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">Order#</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Shipping Address</th>
+            <th scope="col">Total</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of orderInfo">
+            <td class="align-middle">{{order.orderid}}</td>
+            <td class="align-middle">{{order.ordername}}</td>
+            <td class="align-middle">{{order.username}}</td>
+            <td class="align-middle">{{order.email}}</td>
+            <td class="align-middle">{{order.address}}</td>
+            <td class="align-middle">{{order.total}}</td>
+            <td class="align-middle"><a (click)="cancelOrder(order.orderid)">Cancel Order</a></td>
+        </tr> 
+</table>
+

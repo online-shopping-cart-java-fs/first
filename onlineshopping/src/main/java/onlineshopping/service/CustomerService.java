@@ -1,50 +1,34 @@
 package onlineshopping.service;
 
-
-import java.util.List;
-
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import onlineshopping.bean.Customer;
 import onlineshopping.dao.CustomerRepository;
+
 @Service
 public class CustomerService {
 	
 	@Autowired
-	CustomerRepository cr;
+	CustomerRepository customerRepository;
 	
-	public List<Customer>getAllCustomerFormSpringData(){
-		return cr.findAll();
-	   }
-	
-	public Customer getCustomerSpringDataById(String username) {
+	public Optional<Customer> getCustomer(String username) {
 		
-		Optional<Customer>op=cr.findById(username);
-
-		if(op.isPresent()) {
-			return op.get();
-		}else {
-		return null;
-		}
+		return customerRepository.findById(username);
 	}
-
-	
-	
 	
 	public String storeCustomerSpringData(Customer cc) {
-		Optional<Customer>op=cr.findById(cc.getUsername());
+		
+		Optional<Customer>op=customerRepository.findById(cc.getUsername());
 		if(op.isPresent()) {
-			return "Record already present";
+			return "Sign Up with different username";
 		}else {
-			Customer c=cr.save(cc);
+			Customer c=customerRepository.save(cc);
 			if(c!=null) {
-				return "Record stored successfully";
+				return "Sign Up Successful";
 			}else {
-				return "Record didn't store";
+				return "Cannot Sign Up";
 			}
 		}
 	}
@@ -53,11 +37,11 @@ public class CustomerService {
 	public String deleteCustomerSpringData(String username) {
 		
 		 
-		if(cr.existsById(username)) {
-			cr.deleteById(username);
-			return "Record deleted successfully";
+		if(customerRepository.existsById(username)) {
+			customerRepository.deleteById(username);
+			return "Account Deleted";
 		}else {
-			return "Record not present";
+			return "";
 		}
 		
 	}
@@ -65,20 +49,21 @@ public class CustomerService {
 	
 	public String updateCustomerSpringData(Customer cc) {
 
-	     Optional<Customer> obj=cr.findById(cc.getUsername());
+	     Optional<Customer> obj=customerRepository.findById(cc.getUsername());
 		   if(obj.isPresent()) {
 			Customer c=obj.get();
 			if(c!=null) {
-		
-//			c.setMobileno(cc.getMobileno());
+			c.setAccnum(cc.getAccnum());
 			c.setPassword(cc.getPassword());
-	        cr.saveAndFlush(c);
-	        return "Record updated successfully";
+			c.setAddress(cc.getAddress());
+			c.setMobnum(cc.getMobnum());
+	        customerRepository.saveAndFlush(c);
+	        return "Profile Updated";
 			}else {
-				return "Record didnt updated";
+				return "Error";
 			}
 		}else {
-			return "record is not present";
+			return "";
 		}
 	}
 }

@@ -26,9 +26,9 @@ public class ProductService {
 	@Autowired
 	ProductRepository productRepository;
 	
-	public List<Product> getAllProducts() {
+	public Optional<Product> getProduct(int pid) {
 		
-		return productRepository.findAll();
+		return productRepository.findById(pid);
 	}
 	
 	public String storeProduct(Product pp) {

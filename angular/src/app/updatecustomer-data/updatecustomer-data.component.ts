@@ -13,9 +13,9 @@ export class UpdatecustomerDataComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateCustomerInfo(customerInfo:any){
+  /*updateCustomerInfo(customerInfo:any){
 
     this.customerSer.updateCustomerInfo(customerInfo).subscribe(data=>this.msg=data);
-  }
+  } */
 
 }

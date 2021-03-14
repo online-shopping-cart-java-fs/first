@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteAddressComponent } from './delete-address.component';
+import { StoretoCartComponent } from './storeto-cart.component';
 
-describe('DeleteAddressComponent', () => {
-  let component: DeleteAddressComponent;
-  let fixture: ComponentFixture<DeleteAddressComponent>;
+describe('StoretoCartComponent', () => {
+  let component: StoretoCartComponent;
+  let fixture: ComponentFixture<StoretoCartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteAddressComponent ]
+      declarations: [ StoretoCartComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteAddressComponent);
+    fixture = TestBed.createComponent(StoretoCartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

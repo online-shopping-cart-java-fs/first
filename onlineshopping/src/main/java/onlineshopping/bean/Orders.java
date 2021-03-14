@@ -9,47 +9,40 @@ import javax.persistence.Table;
 @Entity
 @Table(name="orders")
 public class Orders {
+	
 	@Id
 	private int orderid;
-	private Date orderdate;
-	private float price;
-	private String username;
-	private int pid;
+	private String ordername;
+	private String coid;
+	private float total;
+	
 	public int getOrderid() {
 		return orderid;
+	}
+	public String getOrdername() {
+		return ordername;
+	}
+	public String getCoid() {
+		return coid;
+	}
+	public float getTotal() {
+		return total;
 	}
 	public void setOrderid(int orderid) {
 		this.orderid = orderid;
 	}
-	public Date getOrderdate() {
-		return orderdate;
+	public void setOrdername(String ordername) {
+		this.ordername = ordername;
 	}
-	public void setOrderdate(Date orderdate) {
-		this.orderdate = orderdate;
+	public void setCoid(String coid) {
+		this.coid = coid;
 	}
-	public float getPrice() {
-		return price;
+	public void setTotal(float total) {
+		this.total = total;
 	}
-	public void setPrice(float price) {
-		this.price = price;
-	}
-	public int getPid() {
-		return pid;
-	}
-	public void setPid(int pid) {
-		this.pid = pid;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	@Override
-	public String toString() {
-		return "Orders [orderid=" + orderid + ", orderdate=" + orderdate + ", price=" + price + ", username=" + username
-				+ ", pid=" + pid + "]";
-	}
+	
+	
+	
 	
 	
 

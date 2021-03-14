@@ -21,50 +21,33 @@ public class OrderService {
 		return orderRepository.findAll();
 	}
 	
-	public String storeOrderSpringData(Orders aa) {
-		Optional<Orders> op = orderRepository.findById(aa.getOrderid());
+	public String storeOrder(Orders oo) {
+		
+		Optional<Orders> op = orderRepository.findById(oo.getOrderid());
 		if(op.isPresent()) {
-			return "Record already present";
+			return "Already Ordered";
 		}else {
-			Orders c = orderRepository.save(aa);			// save the records 
+			Orders c = orderRepository.save(oo);			// save the records 
 			if(c!=null) {
-				return "Record stored successfully";
+				return "Order Placed Successfully";
 			}else {
-				return "Record didn't store";
+				return "Cannot Order";
 			}
 		}
 		
 	}
 
-	public String updateOrderSpringData(Orders aa) {
-		Optional<Orders> obj = orderRepository.findById(aa.getOrderid());
-		if(obj.isPresent()) 
-		{
-			Orders o	 = obj.get();
-			o.setOrderdate(aa.getOrderdate());
-			o.setPrice(aa.getPrice());
-			
-			
-		orderRepository.saveAndFlush(o);
-		return "Record updated successfully";
-		}
-		else 
-		{
-			return "Record not present";
-		}
-		
-	}
 
-	public String deleteOrderSpringData(int oid) {
-		if(orderRepository.existsById(oid))
+	public String deleteOrder(int orderid) {
+		if(orderRepository.existsById(orderid))
 		{
-			orderRepository.deleteById(oid);
-			return "Record deleted successfully";
+			orderRepository.deleteById(orderid);
+			return "Order Cancelled";
 		}else {
-			return "Record not present";
+			return "";
 		}
 		
-	}
+	} 
 
 	
 

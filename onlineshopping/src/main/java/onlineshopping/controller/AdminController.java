@@ -1,6 +1,7 @@
 package onlineshopping.controller;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,7 @@ public class AdminController {
 	JoinService js;
 	
 	@Autowired
-	CustomerService cs;
+	CustomerService customerService;
 	
 	@Autowired
 	OrderService os;
@@ -107,21 +108,15 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping(value = "getAllCustomerData",produces = MediaType.APPLICATION_JSON_VALUE)
+	/*@GetMapping(value = "getAllCustomerData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Customer> getAllCustomerDetailsFromSpringData(){
-			return cs.getAllCustomerFormSpringData();
+			return customerService.g
 	}
 	
 	@GetMapping(value = "getCustomerDataByUsername/{username}")
 	public Customer getCustomerSpringData(@PathVariable("username") String username) {
 			return cs.getCustomerSpringDataById(username);
-	}
-	
-	@DeleteMapping(value = "deleteCustomerData/{username}")
-	public String deleteCustomerSpringData(@PathVariable("username") String username) {
-			return cs.deleteCustomerSpringData(username);
-	}
-	
+	} */
 	
 	@GetMapping(value = "addressinfo/{username}")
 	public ResponseEntity<List<Object[]>> getCustomerAddressInfo(@PathVariable("username") String username){

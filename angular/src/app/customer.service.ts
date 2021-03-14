@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Customer } from "./customer.model";
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +8,21 @@ import { Customer } from "./customer.model";
 export class CustomerService {
 
   constructor(public httpClient:HttpClient) { }
-  checkCustomer(userRef:any):Observable<Customer[]>{
-     return this.httpClient.get<Customer[]>("http://localhost:9191/admin/getAllCustomerData")
-     
+  
+  getCustomerByusername(user:any):Observable<any>{
+    return this.httpClient.get("http://localhost:9191/home/getCustomer/"+user);
   }
-  storeCustomerInfo(customerRef:any):Observable<string>{
-    return this.httpClient.post("http://localhost:9191/user/storeCustomerData",customerRef,{responseType:'text'})
-    }
 
-    updateCustomerInfo(customerRef:any):Observable<string>{
-      return this.httpClient.put("http://localhost:9191/user/updateCustomerData",customerRef,{responseType:'text'})
-    }
+  storeCustomerData(customerRef:any):Observable<string>{
+    return this.httpClient.post("http://localhost:9191/user/storeCustomerData",customerRef,{responseType:'text'})
+  }
+
+  updateCustomerData(updateRef:any):Observable<string>{
+    return this.httpClient.put("http://localhost:9191/user/updateCustomerData",updateRef,{responseType:'text'})
+  }
+
+  deleteCustomerData(username:any):Observable<string>{
+    return this.httpClient.delete("http://localhost:9191/user/deleteCustomerData/"+username,{responseType:'text'})
+   }
   
 }

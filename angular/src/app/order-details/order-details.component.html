@@ -1,0 +1,24 @@
+<h2 align="center" class="display-4 mb-5">Order Details</h2>
+<form #orderRef="ngForm" (ngSubmit)="storeOrder(orderRef.value)">
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th scope="col">Order#</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of cart">
+            <td class="align-middle"><input [(ngModel)]="item.pname" type="text" name="ordername" style="border: none;" disabled></td>
+            <td class="align-middle"><input [(ngModel)]="customerRef.username" type="text" name="coid" style="border: none;" disabled></td>
+            <td class="align-middle"><input [(ngModel)]="item.price" type="number" name="total" style="border: none;" disabled></td>
+        </tr> 
+</table>
+<div>
+    <input type="button" value="Cancel" (click)="cancel()" class="btn btn-danger float-right">
+</div>    
+<div>
+    <input type="submit" value="Place Order"  class="btn btn-warning float-right">
+</div>    
+</form>
