@@ -1,38 +1,118 @@
 <h2 align="center" class="display-4 mb-5">Edit Profile</h2>
-<div style="width:40%; margin: 25px auto" >
-    <form #updateRef="ngForm" (ngSubmit)="updateCustomer()">
-        <div class="form-group">
-            <label><b>Username</b></label>
-            <input readonly [value]=customerRef?.username type="text" name="username" class="form-control form-control-lg" disabled>
-        </div>
-        <div class="form-group">
-            <label><b>Account Number</b></label>
-            <input [(ngModel)]="customerRef.accnum" type="number" name="accnum" class="form-control form-control-lg" placeholder="Account Number">
-        </div>
-        <div class="form-group">
-            <label><b>Name</b></label>
-            <input [(ngModel)]="customerRef.custname" type="text" name="custname" class="form-control form-control-lg" disabled>
-        </div>
-        <div class="form-group">
-            <label><b>Password</b></label>
-            <input [(ngModel)]="customerRef.password" type="password" name="password" class="form-control form-control-lg" placeholder="New Password">
-        </div>
-        <div class="form-group">
-            <label><b>Email</b></label>
-            <input [(ngModel)]="customerRef.email" type="email" name="email" class="form-control form-control-lg" disabled>
-        </div>
-        <div class="form-group">
-            <label><b>Address</b></label>
-            <input [(ngModel)]="customerRef.address" type="text" name="address" class="form-control form-control-lg" placeholder="Address">
-        </div>
-        <div class="form-group">
-            <label><b>Mobile Number</b></label>
-            <input [(ngModel)]="customerRef.mobnum" type="number" name="mobnum" class="form-control form-control-lg" placeholder="Mobile Number">
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Update" class="btn btn-lg btn-primary btn-block"/>
-        </div>
-    </form>
-    <input type="button" value="Delete Account" class="btn btn-lg btn-danger btn-block" (click)="deleteCustomer()"/>
+<div style="width: 40%; margin: 25px auto">
+  <form #updateRef="ngForm" (ngSubmit)="updateCustomer()">
+    <div class="form-group">
+      <label><b>Username</b></label>
+      <input
+        readonly
+        [value]="customerRef?.username"
+        type="text"
+        name="username"
+        class="form-control form-control-lg"
+        disabled
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Account Number</b></label>
+      <input
+        [(ngModel)]="customerRef.accnum"
+        type="number"
+        name="accnum"
+        #accRef="ngModel"
+        class="form-control form-control-lg"
+        placeholder="Account Number"
+        maxlength="5"
+        required
+        pattern="\d{5}"
+      />
+      <div *ngIf="accRef.errors && (accRef.dirty || accRef.touched)">
+                     <span [hidden]="!accRef.errors.required" style="color: red"
+          >               **Account Number is required            </span
+        >             <span [hidden]="!accRef.errors.pattern" style="color: red"
+          >**Account number must contains only 5 digits </span
+        >         
+      </div>
+    </div>
+    <div class="form-group">
+      <label><b>Name</b></label>
+      <input
+        [(ngModel)]="customerRef.custname"
+        type="text"
+        name="custname"
+        class="form-control form-control-lg"
+        disabled
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Password</b></label>
+      <input
+        [(ngModel)]="customerRef.password"
+        type="password"
+        name="password"
+        #passRef="ngModel"
+        class="form-control form-control-lg"
+        placeholder="New Password"
+        maxlength="20"
+        required
+        pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$"
+      />
+      <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+                     <span
+          [hidden]="!passRef.errors.required"
+          style="color: red"
+          >                 **Password is required             </span
+        >             <span
+          [hidden]="!passRef.errors.pattern"
+          style="color: red"
+          >**Password must contains at least 8 character and maximum 20
+          characters with one uppercase, one lowercase , one number and one
+          special character</span
+        >         
+      </div>
+    </div>
+    <div class="form-group">
+      <label><b>Email</b></label>
+      <input
+        [(ngModel)]="customerRef.email"
+        type="email"
+        name="email"
+        class="form-control form-control-lg"
+        disabled
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Address</b></label>
+      <input
+        [(ngModel)]="customerRef.address"
+        type="text"
+        name="address"
+        class="form-control form-control-lg"
+        placeholder="Address"
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Mobile Number</b></label>
+      <input
+        [(ngModel)]="customerRef.mobnum"
+        type="number"
+        name="mobnum"
+        class="form-control form-control-lg"
+        placeholder="Mobile Number"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="submit"
+        value="Update"
+        class="btn btn-lg btn-primary btn-block"
+        [disabled]="updateRef.invalid"
+      />
+    </div>
+  </form>
+  <input
+    type="button"
+    value="Delete Account"
+    class="btn btn-lg btn-danger btn-block"
+    (click)="deleteCustomer()"
+  />
 </div>
-
