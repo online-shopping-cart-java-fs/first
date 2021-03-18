@@ -21,6 +21,10 @@ export class CustomerService {
     return this.httpClient.put("http://localhost:9191/user/updateCustomerData",updateRef,{responseType:'text'})
   }
 
+  updatePassword(passRef:any):Observable<string>{
+    return this.httpClient.put("http://localhost:9191/user/updatePassword",passRef,{responseType:'text'})
+  }
+
   deleteCustomerData(username:any):Observable<string>{
     return this.httpClient.delete("http://localhost:9191/user/deleteCustomerData/"+username,{responseType:'text'})
    }

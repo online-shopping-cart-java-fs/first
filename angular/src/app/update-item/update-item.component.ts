@@ -9,6 +9,7 @@ import { ItemService } from '../item.service';
 export class UpdateItemComponent implements OnInit {
 
   msg:string="";
+  flag:boolean=false;
 
   constructor(public itemSer:ItemService) { }
 
@@ -16,6 +17,7 @@ export class UpdateItemComponent implements OnInit {
   }
 
   updateItem(itemInfo:any){
+    this.flag=true;
     this.itemSer.updateItemData(itemInfo).subscribe(data=>this.msg=data);
   }
 }

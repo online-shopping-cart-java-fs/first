@@ -1,5 +1,5 @@
 <div style="width:35%; margin: 25px auto" >
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-primary" *ngIf="flag">
         Status: {{msg}}    
     </div>
     <form [formGroup]="productInfo" (ngSubmit)="storeProduct()">

@@ -11,6 +11,7 @@ import { CustomerService } from '../customer.service';
 export class SignupComponent implements OnInit {
 
   msg:string="";
+  flag:boolean=false;
 
   customerInfo=new FormGroup({
     username:new FormControl(),
@@ -29,10 +30,8 @@ export class SignupComponent implements OnInit {
 
   storeCustomer(){
     let customerRef=this.customerInfo.value;
-    this.customerSer.storeCustomerData(customerRef).subscribe(result=>{
-      this.msg=result
-      alert(this.msg)
-    })
+    this.flag=true;
+    this.customerSer.storeCustomerData(customerRef).subscribe(result=>this.msg=result)
   }
 
 }

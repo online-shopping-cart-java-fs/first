@@ -149,6 +149,11 @@ public class UserController {
 	public String updateCustomerSpringData(@RequestBody Customer cc) {
 		return cs.updateCustomerSpringData(cc);
 	}
+	
+	@PutMapping(value = "updatePassword",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
+	public String updatePassword(@RequestBody Customer cc) {
+		return cs.updatePassword(cc);
+	}
 		
 	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeCustomerSpringData(@RequestBody Customer cc) {

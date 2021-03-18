@@ -36,6 +36,7 @@ import { RetrieveProductbyidcustomerComponent } from './retrieve-productbyidcust
 import { ProfileComponent } from './profile/profile.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrdersComponent } from './orders/orders.component';
+import { PasswordComponent } from './password/password.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { OrdersComponent } from './orders/orders.component';
     ProfileComponent,
     OrderDetailsComponent,
     OrdersComponent,
+    PasswordComponent,
 
   ],
   imports: [

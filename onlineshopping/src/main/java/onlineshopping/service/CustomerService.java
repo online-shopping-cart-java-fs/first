@@ -66,6 +66,24 @@ public class CustomerService {
 			return "";
 		}
 	}
+	
+	public String updatePassword(Customer cc) {
+
+	     Optional<Customer> obj=customerRepository.findById(cc.getUsername());
+		   if(obj.isPresent()) {
+			Customer c=obj.get();
+			if(c!=null) {
+			c.setPassword(cc.getPassword());
+	        customerRepository.saveAndFlush(c);
+	        return "Password Changed Successfully";
+			}else {
+				return "Error";
+			}
+		}else {
+			return "Invalid Username";
+		}
+	}
+
 }
 	
 

@@ -10,6 +10,7 @@ import { ProductService } from '../product.service';
 export class StoreProductComponent implements OnInit {
 
   msg:string="";
+  flag:boolean=false;
   
   productInfo = new FormGroup({
     pid:new FormControl(),
@@ -25,6 +26,7 @@ export class StoreProductComponent implements OnInit {
 
   storeProduct() {
     let productRef = this.productInfo.value;
+    this.flag=true;
     this.productSer.storeProductData(productRef).subscribe(result=>this.msg=result);
   }
 
