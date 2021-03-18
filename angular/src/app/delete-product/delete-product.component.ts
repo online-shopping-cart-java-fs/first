@@ -9,6 +9,7 @@ import { ProductService } from '../product.service';
 export class DeleteProductComponent implements OnInit {
 
   msg:string="";
+  flag:boolean=false;
 
   constructor(public productSer:ProductService) { }
 
@@ -16,6 +17,7 @@ export class DeleteProductComponent implements OnInit {
   }
 
   deleteProduct(pid:any){
+    this.flag=true;
     this.productSer.deleteProductData(pid).subscribe(result=>this.msg=result);
   }
 

@@ -11,11 +11,14 @@ import { CustomerService } from '../customer.service';
 export class LoginComponent implements OnInit {
 
   customerRef=new Customer();
+  flag:boolean=false;
   msg:string="";
 
   constructor(public router:Router,public customerSer:CustomerService) { }
 
   ngOnInit(): void {
+
+
   }
 
   checkUser(userRef:any) {
@@ -26,27 +29,28 @@ export class LoginComponent implements OnInit {
     
     if(cat=="admin"){
       if(user=="admin" && pass=="admin"){
-        alert("Login Successful")
         sessionStorage.setItem("name",user); 
         this.router.navigate(["/admin"])
       }else {
-        alert("Invalid Username or Password")
+        this.flag=true;
+        this.msg="Invalid Username or Password";
       }
     }
     else{
       this.customerSer.getCustomerByusername(user).subscribe(data=> {
         if(data==null){
-        alert("Invalid Username")
+          this.flag=true;
+          this.msg="Invalid Username";
         }else {
           this.msg = "";
           this.customerRef=data;
           console.log(this.customerRef.password)
           if(user==this.customerRef.username && pass==this.customerRef.password){
-            alert("Login Successful")
             sessionStorage.setItem("name",user); 
             this.router.navigate(["/customer"])
           }else {
-            alert("Invalid Password")
+            this.flag=true;
+            this.msg="Invalid Password";
           }
         }
       })

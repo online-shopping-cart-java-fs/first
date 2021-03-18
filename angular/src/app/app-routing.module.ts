@@ -11,6 +11,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { PageHomeComponent } from './page-home/page-home.component';
+import { PasswordComponent } from './password/password.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RetrieveItemComponent } from './retrieve-item/retrieve-item.component';
 import { RetrieveItemcustomerComponent } from './retrieve-itemcustomer/retrieve-itemcustomer.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
     {path:"",component:PageHomeComponent},
     {path:"\login",component:LoginComponent},
     {path:"\signup",component:SignupComponent},
+    {path:"\password",component:PasswordComponent},
 
   ]},
   {path:"\customer",component:CustomerDashboardComponent,canActivate:[MyGaurds],children:[

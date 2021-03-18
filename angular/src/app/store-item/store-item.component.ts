@@ -10,6 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class StoreItemComponent implements OnInit {
 
   msg:string="";
+  flag:boolean=false;
   
   itemInfo = new FormGroup({
     itemid:new FormControl(),
@@ -23,6 +24,7 @@ export class StoreItemComponent implements OnInit {
 
   storeItem() {
     let itemRef = this.itemInfo.value;
+    this.flag=true;
     this.itemSer.storeItemData(itemRef).subscribe(result=>this.msg=result);
   }
 }

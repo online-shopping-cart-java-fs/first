@@ -10,6 +10,7 @@ import { ItemService } from '../item.service';
 export class DeleteItemComponent implements OnInit {
 
   msg:string="";
+  flag:boolean=false;
 
   constructor(public itemSer:ItemService) { }
 
@@ -17,6 +18,7 @@ export class DeleteItemComponent implements OnInit {
   }
 
   deleteItem(itemid:any){
+    this.flag=true;
     this.itemSer.deleteItemData(itemid).subscribe(result=>this.msg=result);
   }
 
