@@ -1,4 +1,6 @@
-<div style="width:35%; margin: 25px auto" >
+<div class="my-container">
+    <br/><br/>
+<div style="width:35%; margin: 0 auto" >
     <div class="alert alert-danger" *ngIf="flag">
         Status: {{msg}}    
     </div>
@@ -8,4 +10,5 @@
     <div class="form-group">
     <input type="button" value="Delete Product" class="btn btn-lg btn-danger btn-block" (click)="deleteProduct(productIdRef.value)"/>
     </div>
+</div>
 </div>

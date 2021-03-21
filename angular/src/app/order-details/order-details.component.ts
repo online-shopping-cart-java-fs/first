@@ -34,10 +34,8 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   storeOrder(orderInfo:any){
-    this.orderSer.storeOrderData(orderInfo).subscribe(data=>{
-      this.msg=data
-      alert(this.msg)
-    })
+    this.orderSer.storeOrderData(orderInfo).subscribe(data=>this.msg=data)
+    this.cart=this.cartSer.removeFromCart();
   }
 
 }

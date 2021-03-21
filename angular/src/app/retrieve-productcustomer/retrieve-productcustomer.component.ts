@@ -21,7 +21,6 @@ export class RetrieveProductcustomerComponent implements OnInit {
 
   storeCart(product:any){
     this.cartSer.storeToCart(product);
-    alert("Added to Cart");
     this.router.navigate(["/customer/cart"])
   }
 

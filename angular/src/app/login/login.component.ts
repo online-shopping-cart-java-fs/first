@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
         }else {
           this.msg = "";
           this.customerRef=data;
-          console.log(this.customerRef.password)
           if(user==this.customerRef.username && pass==this.customerRef.password){
             sessionStorage.setItem("name",user); 
             this.router.navigate(["/customer"])

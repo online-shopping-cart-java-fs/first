@@ -29,7 +29,7 @@ public class OrderService {
 		}else {
 			Orders c = orderRepository.save(oo);			// save the records 
 			if(c!=null) {
-				return "Order Placed Successfully";
+				return "Order Placed";
 			}else {
 				return "Cannot Order";
 			}

@@ -16,13 +16,6 @@ import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
-import { StoreCreditcardComponent } from './store-creditcard/store-creditcard.component';
-import { UpdateCreditcardComponent } from './update-creditcard/update-creditcard.component';
-import { DeleteCreditcardComponent } from './delete-creditcard/delete-creditcard.component';
-import { GetCreditcardByidComponent } from './get-creditcard-byid/get-creditcard-byid.component';
-import { StoreOrdersComponent } from './store-orders/store-orders.component';
-import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
-import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orders.component';
 import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { StoreProductComponent } from './store-product/store-product.component';
@@ -56,13 +49,6 @@ import { PasswordComponent } from './password/password.component';
     UpdateProductComponent,
     DeleteProductComponent,
     RetrieveItemComponent,
-    StoreCreditcardComponent,
-    UpdateCreditcardComponent,
-    DeleteCreditcardComponent,
-    GetCreditcardByidComponent,
-    StoreOrdersComponent,
-    DeleteOrdersComponent,
-    RetriveAllOrdersComponent,
     UpdatecustomerDataComponent,
     PageHomeComponent,
     RetrieveProductbyidComponent,

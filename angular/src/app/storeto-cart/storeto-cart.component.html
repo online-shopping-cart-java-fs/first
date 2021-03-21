@@ -1,3 +1,4 @@
+<div class="my-container">
 <h2 align="center" class="display-4 mb-5">My Cart</h2>
 <table class="table table-striped text-center">
     <thead>
@@ -19,9 +20,10 @@
             <td class="align-middle">{{item.pname}}</td>
             <td class="align-middle">{{item.price | currency:'INR'}}</td>
             <td class="align-middle">{{item.itemname}}</td>
-            <td class="align-middle"><a (click)="remove()">Remove</a></td>
+            <td class="align-middle"><a (click)="remove()" style="color: red;">Remove</a></td>
         </tr> 
 </table>   
 <div *ngIf="cart?.length > 0;">
     <button (click)="checkout()" class="btn btn-warning float-right">Checkout</button>
+</div>
 </div>    

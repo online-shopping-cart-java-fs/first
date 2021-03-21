@@ -12,24 +12,13 @@ export class SignupComponent implements OnInit {
 
   msg:string="";
   flag:boolean=false;
-
-  customerInfo=new FormGroup({
-    username:new FormControl(),
-    accnum:new FormControl(),
-    custname:new FormControl(),
-    password:new FormControl(),
-    email:new FormControl(),
-    address:new FormControl(),
-    mobnum:new FormControl()
-  })
   
   constructor(public router:Router,public customerSer:CustomerService) { }
 
   ngOnInit(): void {
   }
 
-  storeCustomer(){
-    let customerRef=this.customerInfo.value;
+  storeCustomer(customerRef:any){
     this.flag=true;
     this.customerSer.storeCustomerData(customerRef).subscribe(result=>this.msg=result)
   }
