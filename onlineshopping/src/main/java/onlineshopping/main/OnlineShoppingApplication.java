@@ -16,5 +16,4 @@ public class OnlineShoppingApplication {
 		SpringApplication.run(OnlineShoppingApplication.class, args);
 		System.err.println("Welcome to Online Shopping running on 9191");
 	}
-
 }
