@@ -1,9 +1,11 @@
 package onlineshopping.bean;
 
 import javax.persistence.Entity;
-
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="customer")
@@ -16,7 +18,7 @@ public class Customer {
 	private String password;
 	private String email;
 	private String address;
-	private long mobnum;
+	private String mobnum;
 	
 	public String getUsername() {
 		return username;
@@ -36,7 +38,7 @@ public class Customer {
 	public String getAddress() {
 		return address;
 	}
-	public long getMobnum() {
+	public String getMobnum() {
 		return mobnum;
 	}
 	public void setUsername(String username) {
@@ -57,7 +59,7 @@ public class Customer {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public void setMobnum(long mobnum) {
+	public void setMobnum(String mobnum) {
 		this.mobnum = mobnum;
 	}
 	

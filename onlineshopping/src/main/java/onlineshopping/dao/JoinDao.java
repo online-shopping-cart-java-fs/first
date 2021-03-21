@@ -23,6 +23,7 @@ manager.createNativeQuery("select c.username,c.custname,ad.addid,ad.streetname,a
 		
 		qry.setParameter("username", username);
 		List<Object[]> list = qry.getResultList();
+		manager.close();
 		return list;
 }
 	
@@ -39,7 +40,7 @@ manager.createNativeQuery("select c.username,c.custname,o.orderid,o.orderdate,p.
 
 		List<Object[]> list = qry.getResultList();
 	
-	
+	    manager.close();
 		return list;
 }
 

@@ -20,7 +20,11 @@
             <td class="align-middle">{{item.pname}}</td>
             <td class="align-middle">{{item.price | currency:'INR'}}</td>
             <td class="align-middle">{{item.itemname}}</td>
+
             <td class="align-middle"><a (click)="remove()" style="color: red;">Remove</a></td>
+
+            <td class="align-middle"><a (click)="remove(item.pid)">Remove</a></td>
+
         </tr> 
 </table>   
 <div *ngIf="cart?.length > 0;">
