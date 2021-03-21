@@ -17,7 +17,7 @@ export class StoretoCartComponent implements OnInit {
     this.cart=this.cartSer.getFromCart();  
   }
 
-  remove(){
+  remove(pi:any){
     this.cart=this.cartSer.removeFromCart();
   }
 
