@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,10 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { MyGaurds } from './app.guards';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
-
 import { StoreOrdersComponent } from './store-orders/store-orders.component';
 import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
-import { RetriveAllOrdersComponent } from './retrive-all-orders/retrive-all-orders.component';
 import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { StoreProductComponent } from './store-product/store-product.component';
@@ -55,7 +54,7 @@ import { PasswordComponent } from './password/password.component';
 
     StoreOrdersComponent,
     DeleteOrdersComponent,
-    RetriveAllOrdersComponent,
+
     UpdatecustomerDataComponent,
     PageHomeComponent,
     RetrieveProductbyidComponent,
