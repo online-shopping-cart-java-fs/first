@@ -37,6 +37,7 @@ public class ProductItemDao {
 			pi.setItemname((String) obj[3]);
 			listOfPiByCat.add(pi);
 		}
+		manager.close();
 		return listOfPiByCat;
 		
 	}
@@ -57,6 +58,7 @@ public class ProductItemDao {
 			pi.setItemname((String) obj[3]);
 			listOfPi.add(pi);
 		}
+		manager.close();
 		return listOfPi;
 	}
 

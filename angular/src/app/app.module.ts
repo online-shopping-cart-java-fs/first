@@ -19,7 +19,6 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { StoreOrdersComponent } from './store-orders/store-orders.component';
 import { DeleteOrdersComponent } from './delete-orders/delete-orders.component';
-
 import { UpdatecustomerDataComponent } from './updatecustomer-data/updatecustomer-data.component';
 import { RetrieveProductComponent } from './retrieve-product/retrieve-product.component';
 import { StoreProductComponent } from './store-product/store-product.component';

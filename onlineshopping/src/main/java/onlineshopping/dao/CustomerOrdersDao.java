@@ -39,6 +39,7 @@ public class CustomerOrdersDao {
 			co.setTotal((float) obj[5]);
 			listOfCustOrders.add(co);
 		}
+		manager.close();
 		return listOfCustOrders;
 		
 	}

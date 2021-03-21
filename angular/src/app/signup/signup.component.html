@@ -1,45 +1,204 @@
+
+<h2 align="center" class="display-4 mb-5">Sign Up</h2>
+<div style="width: 40%; margin: 25px auto">
+  <form [formGroup]="customerInfo" (ngSubmit)="storeCustomer()">
+    <div class="form-group">
+      <label><b>Username</b></label>
+      <input
+        type="text"
+        formControlName="username"
+        class="form-control form-control-lg"
+        placeholder="Enter Username"
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Account Number</b></label>
+      <input
+        type="number"
+        formControlName="accnum"
+        class="form-control form-control-lg"
+        placeholder="Account Number"
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Name</b></label>
+      <input
+        type="text"
+        formControlName="custname"
+        class="form-control form-control-lg"
+        placeholder="Enter Your Name"
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Password</b></label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control form-control-lg"
+        placeholder="Password"
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Email</b></label>
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control form-control-lg"
+        placeholder="Email"
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Address</b></label>
+      <input
+        type="text"
+        formControlName="address"
+        class="form-control form-control-lg"
+        placeholder="Address"
+      />
+    </div>
+    <div class="form-group">
+      <label><b>Mobile Number</b></label>
+      <input
+        type="number"
+        formControlName="mobnum"
+        class="form-control form-control-lg"
+        placeholder="Mobile number"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="submit"
+        value="Sign Up"
+        class="btn btn-lg btn-primary btn-block"
+      />
+    </div>
+    <div class="form-group">
+      <input type="reset" value="Reset" class="btn btn-lg btn-dark btn-block" />
+    </div>
+  </form>
+
 <div class="my-container">
 <h1 align="center" class="display-4 mb-5">Sign Up</h1>
 <div style="width:40%; margin: 25px auto" >
     <div class="alert alert-secondary" *ngIf="flag">
         {{msg}}
     </div>
-    <form [formGroup]="customerInfo" (ngSubmit)="storeCustomer()">  
-        <div class="form-group">      
-        <label><b>Username</b></label>
-        <input type="text" formControlName="username"  class="form-control form-control-lg" placeholder="Enter Username">
-        </div>
+    <form  action="/register" #userRef="ngForm" (ngSubmit)="storeCustomer(userRef.value)">  
         <div class="form-group">
-        <label><b>Account Number</b></label>  
-        <input type="number" formControlName="accnum"  class="form-control form-control-lg" placeholder="Account Number">
-        </div>
+            <label><b>UserName</b></label>
+            <input type="text" name="username" class="form-control form-control-lg"  ngModel #sRef="ngModel" placeholder="Username" required minlength="2">        
+            <div *ngIf="sRef.errors && (sRef.dirty || sRef.touched)">
+                <span [hidden]="!sRef.errors.required" style="color: red;">
+                        UserName is required
+                </span>
+            </div>
+        </div> 
+        
         <div class="form-group">
-        <label><b>Name</b></label>
-        <input type="text" formControlName="custname" class="form-control form-control-lg" placeholder="Enter Your Name">
-        </div>
+            <label><b>Account Number</b></label>
+            <input
+              type="number"
+              name="accnum"
+              ngModel
+              #accRef="ngModel"
+              class="form-control form-control-lg"
+              placeholder="Account Number"
+              maxlength="5"
+              required
+              pattern="\d{5}"
+            />
+            <div *ngIf="accRef.errors && (accRef.dirty || accRef.touched)">
+                <span [hidden]="!accRef.errors.required" style="color: red">
+                Account Number is required           
+                </span>             
+                <span [hidden]="!accRef.errors.pattern" style="color: red">
+                Account number must contains only 5 digits 
+                </span>         
+            </div>
+          </div>
+        
+        
         <div class="form-group">
-        <label><b>Password</b></label>
-        <input type="password" formControlName="password" class="form-control form-control-lg"  placeholder="Password">
-        </div>
+            <label><b>Name</b></label>
+            <input type="text" name="custname" class="form-control form-control-lg"  ngModel #nRef="ngModel" placeholder="Enter Your Name" required minlength="2">        
+            <div *ngIf="nRef.errors && (nRef.dirty || nRef.touched)">
+                <span [hidden]="!nRef.errors.required" style="color: red;">
+                        Name is required
+                </span>
+            </div>
+        </div>    
+           
         <div class="form-group">
-        <label><b>Email</b></label>
-        <input type="email" formControlName="email"  class="form-control form-control-lg" placeholder="Email">
+            <label><b>Password</b></label>
+            <input type="password" name="password" ngModel #passRef="ngModel" class="form-control form-control-lg"  placeholder="Password"
+            required 
+            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$"
+            />
+            <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+                <span [hidden]="!passRef.errors.pattern"
+                style="color: red;">
+                Password must contain at least 8 character with 1 uppercase,1 lowercase, 1 number and 1 special character only 
+                </span>
+            </div>
+            <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+                <span [hidden]="!passRef.errors.required" style="color: red;">
+                        Password is required
+                </span>
+            </div>
         </div>
+            
         <div class="form-group">
-        <label><b>Address</b></label>
-        <input type="text" formControlName="address" class="form-control form-control-lg" placeholder="Address">
+            <label><b>Email</b></label>
+            <input type="email" name="email" ngModel #emailRef="ngModel" class="form-control form-control-lg"  placeholder="Email"
+            required 
+            pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required
+            />
+            <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)">
+                <span [hidden]="!emailRef.errors.pattern"
+                    style="color: red;">
+                    Email must be valid 
+                </span>
+            </div>
+            <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)">
+                <span [hidden]="!emailRef.errors.required" style="color: red;">
+                        Email is required
+                </span>
+            </div>
         </div>
+                
+    
         <div class="form-group">
-        <label><b>Mobile Number</b></label>
-        <input type="number" formControlName="mobnum"  class="form-control form-control-lg" placeholder="Mobile number">
+            <label><b>Address</b></label>
+            <input type="text" name="address" ngModel #address="ngModel" class="form-control form-control-lg" placeholder="Address" required>
         </div>
+        
         <div class="form-group">
-        <input type="submit"  value="Sign Up" class="btn btn-lg btn-primary btn-block">
+            <label><b>Mobile Number</b></label>
+            <input type="text" name="mobnum" ngModel #mobileRef="ngModel" class="form-control form-control-lg"  placeholder="Mobile Number"
+            required 
+            pattern="^((\\+91-?)|0)?[0-9]{10}$" required
+            />
+            <div *ngIf="mobileRef.errors && (mobileRef.dirty || mobileRef.touched)">
+                <span [hidden]="!mobileRef.errors.pattern"
+                    style="color: red;">
+                    Mobile number must be valid 
+                </span>
+            </div>
+            <div *ngIf="mobileRef.errors && (mobileRef.dirty || mobileRef.touched)">
+                <span [hidden]="!mobileRef.errors.required" style="color: red;">
+                        Mobile number is required
+                </span>
+            </div>
+            </div>
+            
+        <div class="form-group">
+            <input type="submit"  value="Sign Up" class="btn btn-lg btn-primary btn-block">
         </div>
         <div class="form-group"> 
-        <input type="reset"  value="Reset" class="btn btn-lg btn-dark btn-block">
+            <input type="reset"  value="Reset" class="btn btn-lg btn-dark btn-block">
         </div> 
+
     </form> 
 </div>
-</div>
 
+</div>
