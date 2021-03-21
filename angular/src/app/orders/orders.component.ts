@@ -21,16 +21,20 @@ export class OrdersComponent implements OnInit {
     let obj = sessionStorage.getItem("name");
     if(obj!=null){
       this.user=obj;
-      this.orderSer.getOrdersByCustomer(this.user).subscribe(data=>this.orderInfo=data)
+      this.orderSer.getOrdersByCustomer(this.user).subscribe(data=>{
+        if(data==null){
+          this.msg="No Orders";
+        }else{
+          this.msg="";
+          this.orderInfo=data
+        }
+      })
     }
 
   }
 
   cancelOrder(orderid:any){
-    this.orderSer.deleteOrderData(orderid).subscribe(data=>{
-      this.msg=data
-      alert(this.msg)
-    })
+    this.orderSer.deleteOrderData(orderid).subscribe(data=>this.msg=data)
   }
 
 }

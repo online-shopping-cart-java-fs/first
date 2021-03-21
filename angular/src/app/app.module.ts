@@ -52,8 +52,10 @@ import { PasswordComponent } from './password/password.component';
     DeleteProductComponent,
     RetrieveItemComponent,
 
+
     StoreOrdersComponent,
     DeleteOrdersComponent,
+
 
     UpdatecustomerDataComponent,
     PageHomeComponent,

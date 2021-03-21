@@ -1,28 +1,95 @@
+
+<div class="my-container">
+
+  <h1 align="center" class="display-4 mb-5">Sign In</h1>
+
+  <div style="width:40%; margin: 25px auto">
+
+    <div class="alert alert-danger" *ngIf="flag">
+      {{msg}}
+    </div>
+
+
 <!--<div class="my-container">
 <h1 align="center" class="display-4 mb-5">Sign In</h1>
     <div style="width:40%; margin: 25px auto" >
         <div class="alert alert-danger" *ngIf="flag">
             {{msg}}
         </div>
+
     <form #userRef="ngForm" (ngSubmit)="checkUser(userRef.value)">
-        <div class="form-group">
+      <div class="form-group">
         <label>Username</label>
-        <input type="text" name="user" class="form-control form-control-lg"  placeholder="Enter Username" required ngModel/>
+        <input
+          type="text"
+          name="user"
+          ngModel
+          #u1Ref="ngModel"
+          class="form-control form-control-lg"
+          placeholder="Enter Username"
+          required
+          minlength="2"
+        />
+         
+        <div *ngIf="u1Ref.errors && (u1Ref.dirty || u1Ref.touched)">
+                       <span [hidden]="!u1Ref.errors.required" style="color: red"
+            >                 **UserName is required             </span
+          >             <span
+            [hidden]="!u1Ref.errors.minlength"
+            style="color: red"
+            >                 **minlength must be 2 character             </span
+          >                     
         </div>
-        <div class="form-group">
+               
+      </div>
+      <div class="form-group">
         <label>Password</label>
-        <input type="password" name="pass" class="form-control form-control-lg" placeholder="Enter Password" required ngModel/>
+        <input
+          type="password"
+          name="pass"
+          ngModel
+          #passRef="ngModel"
+          class="form-control form-control-lg"
+          placeholder="Enter Password"
+          required
+        />
+         
+        <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+                       <span
+            [hidden]="!passRef.errors.required"
+            style="color: red"
+            >                 **Password is required             </span
+          >                     
         </div>
-        <div class="form-group">
-        <input type="radio" name="cat" value="admin" required ngModel/>&nbsp;
-        <label class="inline">Admin</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="cat" value="customer" required ngModel/>&nbsp;
+           
+      </div>
+      <div class="form-group">
+        <input
+          type="radio"
+          name="cat"
+          ngModel
+          #catRef="ngModel"
+          value="admin"
+          required
+        />&nbsp; <label class="inline">Admin</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input
+          type="radio"
+          name="cat"
+          ngModel
+          #catRef="ngModel"
+          value="customer"
+          required
+        />&nbsp;
         <label class="inline">Customer</label>
-        <a class="float-right" routerLink="/password">Forgot Password?</a>
+        <div *ngIf="catRef.errors && (catRef.dirty || catRef.touched)">
+                       <span [hidden]="!catRef.errors.required" style="color: red"
+            >                 **Category is required             </span
+          >                    
         </div>
-        <div class="form-group">
-        <input type="submit" value="Sign In" class="btn btn-lg btn-primary btn-block" [disabled]="!userRef.valid"/>
-        </div>
+
+  
+        <a class="float-right" routerLink="/password">Forget Password?</a>
+
         <div class="form-group">
         <input type="reset" value="Reset" class="btn btn-lg btn-dark btn-block"/>
         </div>
@@ -53,28 +120,20 @@
           style="color: red"
           >                 **minlength must be 2 character             </span
         >                     
+
       </div>
-             
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input
-        type="password"
-        name="pass"
-        ngModel
-        #passRef="ngModel"
-        class="form-control form-control-lg"
-        placeholder="Enter Password"
-        required
-      />
-       
-      <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
-                     <span
-          [hidden]="!passRef.errors.required"
-          style="color: red"
-          >                 **Password is required             </span
-        >                     
+      <div class="form-group">
+        <input
+          type="submit"
+          value="Sign In"
+          class="btn btn-lg btn-primary btn-block"
+          [disabled]="userRef.invalid"
+        />
       </div>
+
+      <div class="form-group">
+        <input type="reset" value="Reset" class="btn btn-lg btn-dark btn-block" />
+
          
     </div>
     <div class="form-group">
@@ -99,7 +158,12 @@
                      <span [hidden]="!catRef.errors.required" style="color: red"
           >                 **Category is required             </span
         >                    
+
       </div>
+    </form>
+
+
+  </div>
 
       <a class="float-right" routerLink="/password">Forget Password?</a>
     </div>
@@ -117,7 +181,9 @@
   </form>
 
 
+
 </div>
+
 
 
 

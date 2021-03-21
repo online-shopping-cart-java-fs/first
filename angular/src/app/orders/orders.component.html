@@ -1,4 +1,6 @@
+<div class="my-container">
 <h2 align="center" class="display-4 mb-5">Your Orders</h2>
+<h5 align="center">{{msg}}</h5>
 <table class="table table-striped text-center">
     <thead>
         <tr>
@@ -19,7 +21,9 @@
             <td class="align-middle">{{order.email}}</td>
             <td class="align-middle">{{order.address}}</td>
             <td class="align-middle">{{order.total}}</td>
-            <td class="align-middle"><a (click)="cancelOrder(order.orderid)">Cancel Order</a></td>
+            <!--<td class="align-middle">{{order.orderdate}}</td>-->
+            <td class="align-middle"><a (click)="cancelOrder(order.orderid)" style="color: red;">Cancel Order</a></td>
         </tr> 
 </table>
+</div>
 

@@ -1,4 +1,6 @@
+<div class="my-container">
 <h2 align="center" class="display-4 mb-5">Order Details</h2>
+<h5 align="center" style="color: red;">{{msg}}</h5>
 <form #orderRef="ngForm" (ngSubmit)="storeOrder(orderRef.value)">
 <table class="table table-striped text-center">
     <thead>
@@ -15,10 +17,11 @@
             <td class="align-middle"><input [(ngModel)]="item.price" type="number" name="total" style="border: none;" disabled></td>
         </tr> 
 </table>
-<div>
+<div *ngIf="cart?.length > 0;">
     <input type="button" value="Cancel" (click)="cancel()" class="btn btn-danger float-right">
 </div>    
-<div>
+<div *ngIf="cart?.length > 0;">
     <input type="submit" value="Place Order"  class="btn btn-warning float-right">
 </div>    
 </form>
+</div>

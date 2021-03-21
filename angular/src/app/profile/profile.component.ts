@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   msg:string="";
   user:string="";
+  flag:boolean=false;
   customerRef=new Customer();
 
   constructor(public router:Router,public customerSer:CustomerService) {}
@@ -26,16 +27,14 @@ export class ProfileComponent implements OnInit {
   }
 
   updateCustomer(){
-    this.customerSer.updateCustomerData(this.customerRef).subscribe(data=>{
-      this.msg=data
-      alert(this.msg)
-    })
+    this.flag=true;
+    this.customerSer.updateCustomerData(this.customerRef).subscribe(data=>this.msg=data)
+      
   }
   
   deleteCustomer(){
     this.customerSer.deleteCustomerData(this.customerRef.username).subscribe(data=>{
       this.msg=data
-      alert(this.msg)
       sessionStorage.removeItem("name");
       this.router.navigate(["/signup"])
     })

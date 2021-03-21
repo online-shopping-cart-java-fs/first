@@ -5,6 +5,7 @@ import { CanActivate, Router } from "@angular/router";
 export class MyGaurds implements CanActivate {
     
     constructor(public router:Router){}
+    
     canActivate() {  
         let obj = sessionStorage.getItem("name");
         if(obj==null){

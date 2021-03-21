@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   msg:string="";
   flag:boolean=false;
-   
+
 
   /*customerInfo=new FormGroup({
     username:new FormControl(),
@@ -24,6 +24,7 @@ export class SignupComponent implements OnInit {
     address:new FormControl(),
     mobnum:new FormControl()
   })*/
+
   
   constructor(public router:Router,public customerSer:CustomerService) { }
 
@@ -32,8 +33,10 @@ export class SignupComponent implements OnInit {
   }
 
 
+ 
   storeCustomer(customer:Customer){
     //let customerRef=this.customerInfo.value;
+
     this.flag=true;
     //this.customerSer.storeCustomerData(customer).subscribe(result=>this.msg=result)
     this.customerSer.storeCustomerData(customer).subscribe(result=>this.msg=result)
